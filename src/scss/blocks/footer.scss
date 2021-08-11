@@ -2,4 +2,32 @@
   flex: 0 0 auto;
   background-color: $footer-background-color;
   min-height: 273px;
+  position: relative;
+
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -79px;
+    left: -59px;
+    width: 868px;
+    height: 279px;
+    background-image: url('../../img/background-image-guitar-footer@1x.jpg');
+    background-size: 868px 279px;
+    background-repeat: no-repeat;
+
+    @media (min-resolution: 2dppx) {
+      background-image: url("../../img/background-image-guitar-footer@2x.jpg");
+    }
+  }
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: -10px;
+    width: 100%;
+    height: 6px;
+    background-color: $footer-background-color;
+    background-repeat: no-repeat;
+  }
 }
