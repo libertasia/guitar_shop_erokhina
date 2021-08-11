@@ -1,10 +1,9 @@
 const AppRoute = {
   ROOT: `/`,
-  // CONVERTER: `/converter`,
-  // SERVICES: `/services`,
-  // LOAN: `/loan`,
-  // CONTACTS: `/contacts`,
-  // QUESTION: `/question`,
+  CART: `/cart`,
+  CONTACTS: `/contacts`,
+  COMPANY: `/company`,
+  SERVICE_CENTERS: `/serviceCenters`,
 };
 
 const APIRoute = {
