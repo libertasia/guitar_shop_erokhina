@@ -20,7 +20,7 @@ const Footer = () => {
             <li className="footer__social-list-item">
               <a href="https://www.facebook.com/" aria-label="Мы в Фейсбуке">
                 <span className="visually-hidden">Фейсбук</span>
-                <svg width={24} height={24}>
+                <svg className="footer__social-icon" width={24} height={24}>
                   <use href={sprite + `#icon-facebook`} />
                 </svg>
               </a>
@@ -28,7 +28,7 @@ const Footer = () => {
             <li className="footer__social-list-item">
               <a href="https://www.instagram.com/" aria-label="Мы в Инстаграме">
                 <span className="visually-hidden">Инстаграм</span>
-                <svg width={24} height={24}>
+                <svg className="footer__social-icon" width={24} height={24}>
                   <use href={sprite + `#icon-instagram`} />
                 </svg>
               </a>
@@ -36,7 +36,7 @@ const Footer = () => {
             <li className="footer__social-list-item">
               <a href="https://twitter.com/" aria-label="Мы в Твиттере">
                 <span className="visually-hidden">Твиттер</span>
-                <svg width={24} height={24}>
+                <svg className="footer__social-icon" width={24} height={24}>
                   <use href={sprite + `#icon-twitter`} />
                 </svg>
               </a>
@@ -77,7 +77,8 @@ const Footer = () => {
 
         <section className="footer__contacts">
           <h2 className="footer__info-title">Контакты</h2>
-          <p>г. Санкт-Петербург, м. Невский проспект, ул. Казанская 6.</p>
+          <p>г. Санкт-Петербург,<br />м. Невский проспект,<br />ул. Казанская 6.<br /><a className="footer__contacts-number" href="tel:+78125005050">8-812-500-50-50</a></p>
+          <p>Режим работы:<br /><span className="footer__contacts-time">с 11:00 до 20:00,</span><br />без выходных.</p>
         </section>
       </div>
     </footer>

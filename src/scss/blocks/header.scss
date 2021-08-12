@@ -1,5 +1,6 @@
 .header {
   flex: 0 0 auto;
+  margin-bottom: 213px;
   background-color: $header-background-color;
   position: relative;
 
@@ -10,7 +11,7 @@
     right: 0;
     width: 868px;
     height: 282px;
-    background-image: url('../../img/background-image-header@1x.png');
+    background-image: url("../../img/background-image-header@1x.png");
     background-size: 868px 282px;
     background-repeat: no-repeat;
 

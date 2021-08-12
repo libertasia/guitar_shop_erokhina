@@ -2,6 +2,7 @@
   flex: 0 0 auto;
   background-color: $footer-background-color;
   min-height: 273px;
+  margin-top: 131px;
   position: relative;
 
   &::after {
@@ -12,7 +13,7 @@
     left: -59px;
     width: 868px;
     height: 279px;
-    background-image: url('../../img/background-image-guitar-footer@1x.jpg');
+    background-image: url("../../img/background-image-guitar-footer@1x.jpg");
     background-size: 868px 279px;
     background-repeat: no-repeat;
 
@@ -28,6 +29,151 @@
     width: 100%;
     height: 6px;
     background-color: $footer-background-color;
+    background-repeat: no-repeat;
+  }
+}
+
+.footer__container {
+  margin-top: 61px;
+  margin-bottom: 60px;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-rows: auto;
+  column-gap: 120px;
+  color: $basic-white;
+}
+
+.footer__social {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer__logo {
+  margin-bottom: 55px;
+}
+
+.footer__social-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer__social-list-item {
+  margin-right: 22px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.footer__social-icon {
+  fill: $basic-white;
+
+  .footer__social-list-item a:hover & {
+    fill: $basic-bright;
+  }
+
+  .footer__social-list-item a:active & {
+    fill: $basic-bright;
+    opacity: 0.5;
+  }
+}
+
+.footer__info-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  column-gap: 20px;
+}
+
+.footer__info-title {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 3.1;
+  letter-spacing: 0.1em;
+}
+
+.footer__info-company p {
+  font-size: 10px;
+  line-height: 1.2;
+}
+
+.footer__info-catalog-list,
+.footer__info-list {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 10px;
+  line-height: 2;
+  letter-spacing: 0.1em;
+}
+
+.footer__info-catalog-list a,
+.footer__info-list a,
+.footer__contacts a {
+  text-decoration: none;
+  color: $basic-white;
+
+  &:hover {
+    color: $basic-bright;
+  }
+
+  &:active {
+    color: $basic-bright;
+    opacity: 0.5;
+  }
+}
+
+.footer__contacts p {
+  font-size: 10px;
+  line-height: 1.2;
+  letter-spacing: 0.1em;
+}
+
+.footer__contacts-number {
+  position: relative;
+  padding-left: 15px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    background-image: url("../../img/icon-phone.svg");
+    background-size: 10px 10px;
+    background-repeat: no-repeat;
+  }
+
+  &:hover {
+    color: $basic-bright;
+  }
+
+  &:active {
+    color: $basic-bright;
+    opacity: 0.5;
+  }
+}
+
+.footer__contacts-time {
+  position: relative;
+  padding-left: 15px;
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10px;
+    height: 10px;
+    background-image: url("../../img/icon-clock.svg");
+    background-size: 10px 10px;
     background-repeat: no-repeat;
   }
 }
