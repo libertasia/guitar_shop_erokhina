@@ -9,8 +9,8 @@
     content: "";
     position: absolute;
     z-index: -1;
-    top: -79px;
-    left: -59px;
+    top: -84px;
+    left: -20px;
     width: 868px;
     height: 279px;
     background-image: url("../../img/background-image-guitar-footer@1x.jpg");
@@ -25,7 +25,7 @@
   &::before {
     content: "";
     position: absolute;
-    top: -10px;
+    top: -15px;
     width: 100%;
     height: 6px;
     background-color: $footer-background-color;
@@ -36,20 +36,20 @@
 .footer__container {
   margin-top: 61px;
   margin-bottom: 60px;
-  display: grid;
-  grid-template-columns: 1fr 3fr 1fr;
-  grid-template-rows: auto;
-  column-gap: 120px;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
   color: $basic-white;
 }
 
 .footer__social {
   display: flex;
   flex-direction: column;
+  margin-right: 123px;
 }
 
 .footer__logo {
-  margin-bottom: 55px;
+  margin-bottom: 52px;
 }
 
 .footer__social-list {
@@ -62,7 +62,7 @@
 }
 
 .footer__social-list-item {
-  margin-right: 22px;
+  margin-right: 23px;
 
   &:last-child {
     margin-right: 0;
@@ -83,22 +83,41 @@
 }
 
 .footer__info-section {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: auto;
-  column-gap: 20px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  margin-top: 18px;
+  // margin-right: 93px;
+}
+
+.footer__info-company {
+  width: 140px;
+  margin-right: 19px;
+}
+
+.footer__info-catalog{
+  width: 145px;
+  margin-right: 19px;
 }
 
 .footer__info-title {
   font-weight: 400;
   font-size: 14px;
-  line-height: 3.1;
+  line-height: 1.4;
   letter-spacing: 0.1em;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.footer__info-title-about {
+  margin-bottom: 15px;
 }
 
 .footer__info-company p {
   font-size: 10px;
   line-height: 1.2;
+  margin: 0;
+  margin-bottom: 12px;
 }
 
 .footer__info-catalog-list,
@@ -127,6 +146,12 @@
     color: $basic-bright;
     opacity: 0.5;
   }
+}
+
+.footer__contacts {
+  margin-top: 18px;
+  margin-left: auto;
+  margin-right: 22px;
 }
 
 .footer__contacts p {

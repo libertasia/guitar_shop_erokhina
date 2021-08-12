@@ -47,9 +47,9 @@ const Footer = () => {
         <section className="footer__info-section">
           <h2 className="visually-hidden">Дополнительная информация</h2>
           <section className="footer__info-company">
-            <h3 className="footer__info-title">О нас</h3>
-            <p>Магазин гитар, музыкальных инструментов и гитарная мастерская в Санкт-Петербурге.</p>
-            <p>Все инструменты проверены, отстроены и доведены до идеала!</p>
+            <h3 className="footer__info-title footer__info-title-about">О нас</h3>
+            <p>Магазин гитар,<br /> музыкальных инструментов<br /> и гитарная мастерская в<br /> Санкт-Петербурге.</p>
+            <p>Все инструменты<br /> проверены, отстроены и<br /> доведены до идеала!</p>
           </section>
 
           <section className="footer__info-catalog">
