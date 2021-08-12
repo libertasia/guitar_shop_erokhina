@@ -4,3 +4,64 @@
   margin: 0;
   margin-bottom: 30px;
 }
+
+.filter__form-section {
+  border-top: 0.7px solid $border-color;
+  padding: 30px 0;
+}
+
+.filter__form-section h3 {
+  font-weight: 700;
+  font-size: 18px;
+  margin: 0;
+  margin-bottom: 24px;
+}
+
+.filter__rub {
+  font-size: 15px;
+}
+
+.filter__price-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.filter__price-wrapper input {
+  width: 84px;
+  height: 28px;
+  border: 0.7px solid $input-border-color;
+  border-radius: 2px;
+  background: none;
+  display: flex;
+  text-align: center;
+  padding: 5px 10px;
+}
+
+/* Chrome, Safari, Edge, Opera */
+
+.filter__price-wrapper input::-webkit-outer-spin-button,
+.filter__price-wrapper input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.filter__price-wrapper input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.filter__price-dash {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 13px;
+    right: -7px;
+    width: 14px;
+    height: 1px;
+    background-color: $dark;
+    display: inline-block;
+  }
+}
