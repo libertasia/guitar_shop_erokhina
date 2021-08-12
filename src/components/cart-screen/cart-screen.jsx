@@ -7,8 +7,9 @@ const CartScreen = () => {
     <React.Fragment>
       <Header />
       <main className="main">
-        <div className="container">
-          <p>It is main</p>
+        <div className="container main__container">
+          <h1 className="main__title">Корзина</h1>
+          <span className="main__page-title-first">Главная</span><span className="main__page-title-second">Каталог</span><span className="main__page-title-third">Оформляем</span>
         </div>
       </main>
       <Footer />

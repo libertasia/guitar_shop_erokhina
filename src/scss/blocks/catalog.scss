@@ -1,0 +1,53 @@
+.catalog__sorting-wrapper {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.catalog__sorting-text {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: 0.05em;
+}
+
+.catalog__sorting-text p {
+  margin: 0;
+  margin-right: 19px;
+}
+
+.catalog__sorting-text span {
+  margin-right: 34px;
+}
+
+.catalog__sorting-link {
+  text-decoration: none;
+  color: $dark;
+
+  &--active {
+    color: $basic-black;
+  }
+}
+
+.catalog__sorting-arrows {
+  margin-left: auto;
+  margin-right: 12px;
+}
+
+.catalog__sorting-arrow-btn {
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.catalog__arrow-icon {
+  fill: #6C6C6C;
+
+  .catalog__sorting-arrow-btn--active & {
+    fill: $basic-black;
+  }
+}
