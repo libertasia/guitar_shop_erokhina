@@ -9,10 +9,10 @@ const Filter = () => {
           <h3>Цена, <span className="filter__rub">&#x20bd;</span></h3>
           <div className="filter__price-wrapper">
             <label className="visually-hidden" htmlFor="min-price">Цена от</label>
-            <input type="number" placeholder="1000" id="min-price" name="min-price" />
+            <input type="number" placeholder="1 000" id="min-price" name="min-price" />
             <span className="filter__price-dash" />
             <label className="visually-hidden" htmlFor="max-price">Цена до</label>
-            <input type="number" placeholder="30000" id="max-price" name="max-price" />
+            <input type="number" placeholder="30 000" id="max-price" name="max-price" />
           </div>
         </section>
 

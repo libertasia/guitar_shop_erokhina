@@ -36,6 +36,14 @@
   display: flex;
   text-align: center;
   padding: 5px 10px;
+
+  &::placeholder {
+    font-family: $main-font;
+    letter-spacing: 0.05em;
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.6);
+  }
 }
 
 /* Chrome, Safari, Edge, Opera */
