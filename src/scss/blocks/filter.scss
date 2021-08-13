@@ -65,3 +65,139 @@
     display: inline-block;
   }
 }
+
+.filter__guitar-type-list,
+.filter__guitar-strings-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.filter__guitar-type-item,
+.filter__guitar-string-item {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  margin: 0;
+  margin-bottom: 12px;
+}
+
+.filter__label {
+  padding-left: 40px;
+  font-size: 16px;
+  position: relative;
+}
+
+.filter__checkbox {
+  position: absolute;
+}
+
+.filter__checkbox + .filter__label {
+  position: relative;
+  cursor: pointer;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 24px;
+    height: 24px;
+    background-color: $basic-white;
+    border: 0.7px solid $input-border-color;
+    border-radius: 2px;
+    display: inline-block;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    display: none;
+    top: 6px;
+    left: 6px;
+    width: 12px;
+    height: 10px;
+    background-image: url("../../img/check-mark-icon.svg");
+  }
+}
+
+.filter__checkbox:checked + .filter__label {
+  &::after {
+    display: block;
+  }
+}
+
+.filter__checkbox:hover + .filter__label {
+  &::before {
+    border-color: $dark;
+  }
+}
+
+.filter__checkbox:active + .filter__label {
+  &::before {
+    border-color: $grey;
+  }
+}
+
+.filter__checkbox:focus + .filter__label::before {
+  &::before {
+    border-color: $grey;
+  }
+
+  &::after {
+    display: none;
+  }
+  outline: 0.7px solid $grey;
+}
+
+.filter__checkbox:checked:focus + .filter__label::before {
+  &::before {
+    border-color: $grey;
+  }
+
+  &::after {
+    display: block;
+  }
+  outline: 0.7px solid $grey;
+}
+
+.filter__checkbox:disabled + .filter__label::before {
+  &::after {
+    display: none;
+  }
+  background-color: $light-grey;
+  border: 0.7px solid $light;
+}
+
+.filter__checkbox:disabled + .filter__label {
+  color: $light;
+}
+
+.filter__show-btn {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-transform: uppercase;
+  width: 120px;
+  min-height: 30px;
+  padding: 5px;
+  background-color: $grey;
+  border: none;
+  border-radius: 2px;
+  color: $basic-white;
+  font-family: $main-font;
+  font-weight: 700;
+  font-size: 12px;
+
+  &:hover {
+    background-color: $dark;
+  }
+
+  &:active {
+    background-color: $input-border-color;
+  }
+}

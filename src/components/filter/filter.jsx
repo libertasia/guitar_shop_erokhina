@@ -20,16 +20,16 @@ const Filter = () => {
           <h3>Тип гитар</h3>
           <ul className="filter__guitar-type-list">
             <li className="filter__guitar-type-item">
-              <input type="checkbox" id="acoustic" name="acoustic"/>
-              <label htmlFor="acoustic">Акустические гитары</label>
+              <input className="filter__checkbox visually-hidden" type="checkbox" id="acoustic" name="acoustic"/>
+              <label className="filter__label" htmlFor="acoustic">Акустические гитары</label>
             </li>
             <li className="filter__guitar-type-item">
-              <input type="checkbox" id="electric" name="electric"/>
-              <label htmlFor="electric">Электрогитары</label>
+              <input className="filter__checkbox visually-hidden" type="checkbox" id="electric" name="electric"/>
+              <label className="filter__label" htmlFor="electric">Электрогитары</label>
             </li>
             <li className="filter__guitar-type-item">
-              <input type="checkbox" id="ukulele" name="ukulele"/>
-              <label htmlFor="ukulele">Укулеле</label>
+              <input className="filter__checkbox visually-hidden" type="checkbox" id="ukulele" name="ukulele"/>
+              <label className="filter__label" htmlFor="ukulele">Укулеле</label>
             </li>
           </ul>
         </section>
@@ -38,25 +38,25 @@ const Filter = () => {
           <h3>Количество струн</h3>
           <ul className="filter__guitar-strings-list">
             <li className="filter__guitar-string-item">
-              <input type="checkbox" id="4" name="4"/>
-              <label htmlFor="4">4</label>
+              <input className="filter__checkbox visually-hidden" type="checkbox" id="4" name="4"/>
+              <label className="filter__label" htmlFor="4">4</label>
             </li>
             <li className="filter__guitar-string-item">
-              <input type="checkbox" id="6" name="6"/>
-              <label htmlFor="6">6</label>
+              <input className="filter__checkbox visually-hidden" type="checkbox" id="6" name="6"/>
+              <label className="filter__label" htmlFor="6">6</label>
             </li>
             <li className="filter__guitar-string-item">
-              <input type="checkbox" id="7" name="7"/>
-              <label htmlFor="7">7</label>
+              <input className="filter__checkbox visually-hidden" type="checkbox" id="7" name="7"/>
+              <label className="filter__label" htmlFor="7">7</label>
             </li>
             <li className="filter__guitar-string-item">
-              <input type="checkbox" id="12" name="12"/>
-              <label htmlFor="12">12</label>
+              <input className="filter__checkbox visually-hidden" type="checkbox" id="12" name="12" disabled/>
+              <label className="filter__label" htmlFor="12">12</label>
             </li>
           </ul>
         </section>
 
-        <button type="button">показать</button>
+        <button className="filter__show-btn" type="button">показать</button>
       </form>
     </section>
   );
