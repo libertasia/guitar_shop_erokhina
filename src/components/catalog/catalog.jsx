@@ -2,8 +2,9 @@ import React from 'react';
 import sprite from '../../img/sprite.svg';
 import CatalogItem from '../catalog-item/catalog-item';
 
+const guitars = require(`./../../guitars.json`);
+
 const Catalog = () => {
-  // const guitars = require(`./../../guitars.json`);
   return (
     <div className="main__catalog catalog">
       <div className="catalog__sorting-wrapper">
@@ -30,7 +31,11 @@ const Catalog = () => {
       </div>
 
       <ul className="catalog__goods-list">
-        <CatalogItem />
+        {guitars.map((guitar) =>
+          <CatalogItem
+            key={guitar.article}
+            guitar={guitar}
+          />)}
       </ul>
     </div>
   );

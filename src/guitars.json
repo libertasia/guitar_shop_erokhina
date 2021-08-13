@@ -5,7 +5,8 @@
     "type": "электрогитара",
     "reviews": 15,
     "strings": 7,
-    "price": 17500
+    "price": 17500,
+    "imageName": "electric"
   },
   {
     "article": "TK129049",
@@ -13,7 +14,8 @@
     "type": "электрогитара",
     "reviews": 9,
     "strings": 7,
-    "price": 29500
+    "price": 29500,
+    "imageName": "electric-curt-z300"
   },
   {
     "article": "RO111111",
@@ -21,7 +23,8 @@
     "type": "укулеле",
     "reviews": 21,
     "strings": 4,
-    "price": 6800
+    "price": 6800,
+    "imageName": "ukulele"
   },
   {
     "article": "TK436457",
@@ -29,7 +32,8 @@
     "type": "электрогитара",
     "reviews": 15,
     "strings": 6,
-    "price": 30000
+    "price": 30000,
+    "imageName": "electric-curt-t300"
   },
   {
     "article": "DI192138",
@@ -37,7 +41,8 @@
     "type": "акустическая гитара",
     "reviews": 5,
     "strings": 7,
-    "price": 3500
+    "price": 3500,
+    "imageName": "acoustic"
   },
   {
     "article": "SO934345",
@@ -45,7 +50,8 @@
     "type": "электрогитара",
     "reviews": 17,
     "strings": 6,
-    "price": 15300
+    "price": 15300,
+    "imageName": "electric"
   },
   {
     "article": "DI082347",
@@ -53,7 +59,8 @@
     "type": "укулеле",
     "reviews": 5,
     "strings": 4,
-    "price": 2200
+    "price": 2200,
+    "imageName": "ukulele"
   },
   {
     "article": "SO135646",
@@ -61,7 +68,8 @@
     "type": "электрогитара",
     "reviews": 27,
     "strings": 4,
-    "price": 30000
+    "price": 30000,
+    "imageName": "electric-chester-plus"
   },
   {
     "article": "VO154751",
@@ -69,7 +77,8 @@
     "type": "акустическая гитара",
     "reviews": 3,
     "strings": 7,
-    "price": 1700
+    "price": 1700,
+    "imageName": "acoustic"
   },
   {
     "article": "TK244556",
@@ -77,7 +86,8 @@
     "type": "электрогитара",
     "reviews": 20,
     "strings": 4,
-    "price": 23000
+    "price": 23000,
+    "imageName": "electric"
   },
   {
     "article": "TK134663",
@@ -85,7 +95,8 @@
     "type": "электрогитара",
     "reviews": 19,
     "strings": 4,
-    "price": 18700
+    "price": 18700,
+    "imageName": "electric"
   },
   {
     "article": "SO123212",
@@ -93,7 +104,8 @@
     "type": "электрогитара",
     "reviews": 30,
     "strings": 7,
-    "price": 35000
+    "price": 35000,
+    "imageName": "electric"
   },
   {
     "article": "SO123234",
@@ -101,7 +113,8 @@
     "type": "электрогитара",
     "reviews": 28,
     "strings": 6,
-    "price": 14900
+    "price": 14900,
+    "imageName": "electric"
   },
   {
     "article": "VO519510",
@@ -109,7 +122,8 @@
     "type": "акустическая гитара",
     "reviews": 7,
     "strings": 6,
-    "price": 7600
+    "price": 7600,
+    "imageName": "acoustic"
   },
   {
     "article": "VO457369",
@@ -117,7 +131,8 @@
     "type": "акустическая гитара",
     "reviews": 19,
     "strings": 6,
-    "price": 6500
+    "price": 6500,
+    "imageName": "acoustic"
   },
   {
     "article": "FB625903",
@@ -125,7 +140,8 @@
     "type": "акустическая гитара",
     "reviews": 26,
     "strings": 7,
-    "price": 12000
+    "price": 12000,
+    "imageName": "acoustic"
   },
   {
     "article": "FB576948",
@@ -133,7 +149,8 @@
     "type": "акустическая гитара",
     "reviews": 31,
     "strings": 7,
-    "price": 9900
+    "price": 9900,
+    "imageName": "acoustic"
   },
   {
     "article": "LU012032",
@@ -141,7 +158,8 @@
     "type": "акустическая гитара",
     "reviews": 28,
     "strings": 12,
-    "price": 8900
+    "price": 8900,
+    "imageName": "acoustic"
   },
   {
     "article": "LU546853",
@@ -149,7 +167,8 @@
     "type": "акустическая гитара",
     "reviews": 34,
     "strings": 12,
-    "price": 10500
+    "price": 10500,
+    "imageName": "acoustic"
   },
   {
     "article": "LU458283",
@@ -157,7 +176,8 @@
     "type": "акустическая гитара",
     "reviews": 9,
     "strings": 6,
-    "price": 13300
+    "price": 13300,
+    "imageName": "acoustic"
   },
   {
     "article": "RO324341",
@@ -165,7 +185,8 @@
     "type": "укулеле",
     "reviews": 37,
     "strings": 4,
-    "price": 4800
+    "price": 4800,
+    "imageName": "ukulele"
   },
   {
     "article": "RO214235",
@@ -173,7 +194,8 @@
     "type": "укулеле",
     "reviews": 5,
     "strings": 4,
-    "price": 1900
+    "price": 1900,
+    "imageName": "ukulele"
   },
   {
     "article": "DI132414",
@@ -181,7 +203,8 @@
     "type": "укулеле",
     "reviews": 23,
     "strings": 4,
-    "price": 2500
+    "price": 2500,
+    "imageName": "ukulele"
   },
   {
     "article": "DI934754",
@@ -189,7 +212,8 @@
     "type": "укулеле",
     "reviews": 3,
     "strings": 4,
-    "price": 3800
+    "price": 3800,
+    "imageName": "ukulele"
   },
   {
     "article": "DI034292",
@@ -197,7 +221,8 @@
     "type": "укулеле",
     "reviews": 10,
     "strings": 4,
-    "price": 4100
+    "price": 4100,
+    "imageName": "ukulele"
   },
   {
     "article": "MI193214",
@@ -205,7 +230,8 @@
     "type": "укулеле",
     "reviews": 14,
     "strings": 4,
-    "price": 2700
+    "price": 2700,
+    "imageName": "ukulele"
   },
   {
     "article": "VO043244",
@@ -213,6 +239,7 @@
     "type": "укулеле",
     "reviews": 29,
     "strings": 4,
-    "price": 6700
+    "price": 6700,
+    "imageName": "ukulele"
   }
 ]
