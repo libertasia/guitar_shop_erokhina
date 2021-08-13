@@ -1,0 +1,121 @@
+.catalog-item {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 16px 14px 20px 14px;
+  border: 1px solid $border-color;
+}
+
+.catalog-item__image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 68px;
+  height: 190px;
+}
+
+.catalog-item__reviews {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+// .catalog-item__star {
+//   display: block;
+//   width: 80px;
+//   height: 11px;
+//   margin-right: 5px;
+//   background-image: url("../../img/star-yellow.svg"),
+//   url("../../img/star-yellow.svg"),
+//   url("../../img/star-yellow.svg"),
+//   url("../../img/star-yellow.svg"),
+//   url("../../img/star.svg");
+//   background-size: 10px 11px, 10px 11px, 10px 11px, 10px 11px, 10px 11px;
+//   background-repeat: space;
+//   // background-position: 0 0, 14 0, 28 0, 42 0, 56 0;
+// }
+
+.catalog-item__reviews-number {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  color: $input-border-color;
+}
+
+.catalog-item__info,
+.catalog-item__links {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.catalog-item__info {
+  margin-top: 8px;
+  margin-bottom: 16px;
+}
+
+.catalog-item__info h3,
+.catalog-item__info p{
+  font-weight: 400;
+  font-size: 14px;
+  letter-spacing: 0.05em;
+  margin: 0;
+  padding: 0;
+}
+
+.catalog-item__item-info-link {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  width: 89px;
+  min-height: 23px;
+  padding: 4px 5px;
+  background-color: $grey;
+  border-radius: 2px;
+  color: $basic-white;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+
+  &:hover {
+    background-color: $dark;
+  }
+
+  &:active {
+    background-color: $input-border-color;
+  }
+}
+
+.catalog-item__buy-product-btn {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  width: 87px;
+  min-height: 23px;
+  padding: 4px 5px 4px 24px;
+  background-color: $basic-bright;
+  background-image: url("../../img/cart-button-background-img.svg");
+  background-size: 12px 13px;
+  background-position: top 6px left 11px;
+  background-repeat: no-repeat;
+  border: none;
+  border-radius: 2px;
+  color: $basic-white;
+  font-family: $main-font;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+
+  &:hover {
+    background-color: $hover-basic-bright-color;
+  }
+
+  &:active {
+    background-color: $active-basic-bright-color;
+  }
+}

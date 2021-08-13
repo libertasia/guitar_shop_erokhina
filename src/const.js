@@ -1,8 +1,11 @@
+const DEFAULT_LOCALE = `ru`;
+
 const AppRoute = {
   ROOT: `/`,
   CART: `/cart`,
   CONTACTS: `/contacts`,
   COMPANY: `/company`,
+  GUITAR: `/guitar`,
   SERVICE_CENTERS: `/serviceCenters`,
 };
 
@@ -16,4 +19,4 @@ const ClassName = {
   VISUALLY_HIDDEN: `visually-hidden`,
 };
 
-export {AppRoute, APIRoute, ClassName};
+export {AppRoute, APIRoute, ClassName, DEFAULT_LOCALE};
