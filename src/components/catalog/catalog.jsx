@@ -1,10 +1,20 @@
-import React from 'react';
+import React, {useState, useMemo} from 'react';
 import sprite from '../../img/sprite.svg';
 import CatalogItem from '../catalog-item/catalog-item';
+import Pagination from '../pagination/pagination';
 
 const guitars = require(`./../../guitars.json`);
+const MAX_ITEMS_COUNT_PER_PAGE = 9;
 
 const Catalog = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const currentGuitarData = useMemo(() => {
+    const firstPageIndex = (currentPage - 1) * MAX_ITEMS_COUNT_PER_PAGE;
+    const lastPageIndex = firstPageIndex + MAX_ITEMS_COUNT_PER_PAGE;
+    return guitars.slice(firstPageIndex, lastPageIndex);
+  }, [currentPage]);
+
   return (
     <div className="main__catalog catalog">
       <div className="catalog__sorting-wrapper">
@@ -31,12 +41,20 @@ const Catalog = () => {
       </div>
 
       <ul className="catalog__goods-list">
-        {guitars.map((guitar) =>
+        {currentGuitarData.map((guitar) =>
           <CatalogItem
             key={guitar.article}
             guitar={guitar}
           />)}
       </ul>
+
+      <Pagination
+        className="pagination-bar"
+        currentPage={currentPage}
+        totalCount={guitars.length}
+        pageSize={MAX_ITEMS_COUNT_PER_PAGE}
+        onPageChange={(page) => setCurrentPage(page)}
+      />
     </div>
   );
 };
