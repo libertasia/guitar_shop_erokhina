@@ -19,4 +19,12 @@ const ClassName = {
   VISUALLY_HIDDEN: `visually-hidden`,
 };
 
-export {AppRoute, APIRoute, ClassName, DEFAULT_LOCALE};
+const Rating = {
+  ONE: 1,
+  TWO: 2,
+  THREE: 3,
+  FOUR: 4,
+  FIVE: 5,
+};
+
+export {AppRoute, APIRoute, ClassName, DEFAULT_LOCALE, Rating};

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
-import {AppRoute, DEFAULT_LOCALE} from '../../const';
+import {AppRoute, DEFAULT_LOCALE, Rating} from '../../const';
 
 const CatalogItem = (props) => {
 
@@ -15,7 +15,18 @@ const CatalogItem = (props) => {
       </picture>
 
       <div className="catalog-item__reviews">
-        <div className="catalog-item__star" />
+        <div className="catalog-item__rating-stars">
+          <input type="radio" name={`rating-${guitar.article}`} id={`${guitar.article}-rating-5`} value="5" defaultChecked={guitar.rating === Rating.FIVE ? true : false} />
+          <label htmlFor={`${guitar.article}-rating-5`}></label>
+          <input type="radio" name={`rating-${guitar.article}`} id={`${guitar.article}-rating-4`} value="4" defaultChecked={guitar.rating === Rating.FOUR ? true : false} />
+          <label htmlFor={`${guitar.article}-rating-4`}></label>
+          <input type="radio" name={`rating-${guitar.article}`} id={`${guitar.article}-rating-3`} value="3" defaultChecked={guitar.rating === Rating.THREE ? true : false} />
+          <label htmlFor={`${guitar.article}-rating-3`}></label>
+          <input type="radio" name={`rating-${guitar.article}`} id={`${guitar.article}-rating-2`} value="2" defaultChecked={guitar.rating === Rating.TWO ? true : false} />
+          <label htmlFor={`${guitar.article}-rating-2`}></label>
+          <input type="radio" name={`rating-${guitar.article}`} id={`${guitar.article}-rating-1`} value="1" defaultChecked={guitar.rating === Rating.ONE ? true : false} />
+          <label htmlFor={`${guitar.article}-rating-1`}></label>
+        </div>
         <span className="catalog-item__reviews-number">{guitar.reviews}</span>
       </div>
 
@@ -41,6 +52,7 @@ CatalogItem.propTypes = {
     strings: PropTypes.number.isRequired,
     price: PropTypes.number.isRequired,
     imageName: PropTypes.string.isRequired,
+    rating: PropTypes.number.isRequired,
   }).isRequired,
 };
 
