@@ -1,75 +1,63 @@
-.pagination-bar {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-.pagination-container {
+.pagination {
   display: flex;
   list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
 
-  .pagination-item {
-    padding: 0 12px;
-    height: 32px;
-    text-align: center;
-    margin: auto 4px;
-    color: rgba(0, 0, 0, 0.87);
-    display: flex;
-    box-sizing: border-box;
-    align-items: center;
-    letter-spacing: 0.01071em;
-    border-radius: 16px;
-    line-height: 1.43;
-    font-size: 13px;
-    min-width: 32px;
+.pagination__item {
+  margin: 0;
+  margin-right: 10px;
+  padding: 0;
+  min-width: 24px;
+  height: 24px;
+  text-align: center;
+  display: flex;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  letter-spacing: 0.05em;
+  border: 1px solid $input-border-color;
+  border-radius: 2px;
+  line-height: 1.7;
+  font-size: 12px;
+  background-color: $basic-white;
+  color: $basic-black;
 
-    &.dots:hover {
-      background-color: transparent;
-      cursor: default;
-    }
-    &:hover {
-      background-color: rgba(0, 0, 0, 0.04);
-      cursor: pointer;
-    }
-
-    &.selected {
-      background-color: rgba(0, 0, 0, 0.08);
-    }
-
-    .arrow {
-      &::before {
-        position: relative;
-        /* top: 3pt; Uncomment this to lower the icons as requested in comments*/
-        content: '';
-        /* By using an em scale, the arrows will size with the font */
-        display: inline-block;
-        width: 0.4em;
-        height: 0.4em;
-        border-right: 0.12em solid rgba(0, 0, 0, 0.87);
-        border-top: 0.12em solid rgba(0, 0, 0, 0.87);
-      }
-
-      &.left {
-        transform: rotate(-135deg) translate(-50%);
-      }
-
-      &.right {
-        transform: rotate(45deg);
-      }
-    }
-
-    &.disabled {
-      pointer-events: none;
-
-      .arrow::before {
-        border-right: 0.12em solid rgba(0, 0, 0, 0.43);
-        border-top: 0.12em solid rgba(0, 0, 0, 0.43);
-      }
-
-      &:hover {
-        background-color: transparent;
-        cursor: default;
-      }
-    }
+  &.pagination__item--dots:hover {
+    background-color: transparent;
+    cursor: default;
   }
+
+  &:hover {
+    border-color: $dark;
+    cursor: pointer;
+  }
+
+  &.selected {
+    background-color: $dark;
+    color: $basic-white;
+    border: none;
+  }
+
+  &.disabled {
+    pointer-events: none;
+    display: none;
+  }
+}
+
+.pagination__btn {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80px;
+  height: 24px;
+  border: none;
+  background: none;
+  letter-spacing: 0.05em;
+  line-height: 1.7;
+  font-family: $main-font;
+  font-size: 12px;
+  color: $basic-black;
 }

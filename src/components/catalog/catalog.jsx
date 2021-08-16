@@ -49,7 +49,7 @@ const Catalog = () => {
       </ul>
 
       <Pagination
-        className="pagination-bar"
+        className="catalog__pagination-list"
         currentPage={currentPage}
         totalCount={guitars.length}
         pageSize={MAX_ITEMS_COUNT_PER_PAGE}

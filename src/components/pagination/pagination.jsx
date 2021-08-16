@@ -35,25 +35,24 @@ const Pagination = (props) => {
   let lastPage = paginationRange[paginationRange.length - 1];
   return (
     <ul
-      className={classnames(`pagination-container`, {[className]: className})}
+      className={classnames(`pagination`, {[className]: className})}
     >
       <li
-        className={classnames(`pagination-item`, {
+        className={classnames(`pagination__item`, {
           disabled: currentPage === 1
         })}
-        onClick={onPrevious}
       >
-        <div className="arrow left" />
+        <button className="pagination__btn pagination__btn-previous" onClick={onPrevious}>Назад</button>
       </li>
       {paginationRange.map((pageNumber) => {
         if (pageNumber === DOTS) {
-          return <li className="pagination-item dots">&#8230;</li>;
+          return <li className="pagination__item pagination__item--dots">&#8230;</li>;
         }
 
         return (
           <li
             key={`pagination-${pageNumber}`}
-            className={classnames(`pagination-item`, {
+            className={classnames(`pagination__item`, {
               selected: pageNumber === currentPage
             })}
             onClick={() => onPageChange(pageNumber)}
@@ -63,12 +62,11 @@ const Pagination = (props) => {
         );
       })}
       <li
-        className={classnames(`pagination-item`, {
+        className={classnames(`pagination__item`, {
           disabled: currentPage === lastPage
         })}
-        onClick={onNext}
       >
-        <div className="arrow right" />
+        <button className="pagination__btn pagination__btn-next" onClick={onNext}>Далее</button>
       </li>
     </ul>
   );

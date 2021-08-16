@@ -1,4 +1,3 @@
-// import React from 'react';
 import {useMemo} from 'react';
 
 export const DOTS = `...`;
@@ -65,8 +64,7 @@ export const usePagination = ({
       let middleRange = range(leftSiblingIndex, rightSiblingIndex);
       return [firstPageIndex, DOTS, ...middleRange, DOTS, lastPageIndex];
     }
-    // eslint-disable-next-line consistent-return
-    return;
+    return null;
   }, [totalCount, pageSize, siblingCount, currentPage]);
 
   return paginationRange;
