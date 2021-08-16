@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import {Link} from 'react-router-dom';
 import {DEFAULT_LOCALE} from '../../const';
 import sprite from '../../img/sprite.svg';
 
@@ -12,7 +11,7 @@ const CartItem = (props) => {
     <li className="cart__list-item cart-item">
       <button className="cart-item__btn-cross" type="button">
         <span className="visually-hidden">Удалить товар из корзины</span>
-        <svg className="cart-item__icon-cross" width={12} height={12}>
+        <svg className="cart-item__icon-cross" width={18} height={18}>
           <use href={sprite + `#cross`} />
         </svg>
       </button>
@@ -33,10 +32,10 @@ const CartItem = (props) => {
       </div>
 
       <div className="cart-item__quantity-wrapper">
-        <button type="button" className="cart-item__btn cart-item__btn-decrease"/>
+        <button type="button" className="cart-item__btn cart-item__btn--decrease" aria-label="Уменьшить количество товара" />
         <label htmlFor={`${guitar.article}-quantity`} className="visually-hidden">Изменить количество товара</label>
-        <input type="number" name={`${guitar.article}-quantity`} id={`${guitar.article}-quantity`} value={1} />
-        <button type="button" className="cart-item__btn cart-item__btn-increase"/>
+        <input className="cart-item__input" type="number" name={`${guitar.article}-quantity`} id={`${guitar.article}-quantity`} defaultValue={1} />
+        <button type="button" className="cart-item__btn cart-item__btn--increase" aria-label="Увеличить количество товара" />
       </div>
 
       <div className="cart-item__final-price">

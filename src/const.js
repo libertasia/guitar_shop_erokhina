@@ -7,6 +7,7 @@ const AppRoute = {
   COMPANY: `/company`,
   GUITAR: `/guitar`,
   SERVICE_CENTERS: `/serviceCenters`,
+  ORDER: `/order`,
 };
 
 const APIRoute = {

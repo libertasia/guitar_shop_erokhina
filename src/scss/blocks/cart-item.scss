@@ -1,0 +1,150 @@
+.cart-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  border-top: 1px solid $border-color;
+  width: 100%;
+  margin: 0;
+  padding: 20px 0 20px 44px;
+  position: relative;
+}
+
+.cart-item__btn-cross {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  cursor: pointer;
+  display: flex;
+  border: none;
+  background: none;
+  margin: 0;
+  padding: 0;
+}
+
+.cart-item__icon-cross {
+  fill: $input-border-color;
+  width: 18px;
+  height: 18px;
+
+  .cart-item__btn-cross:hover & {
+    fill: $basic-dark;
+  }
+
+  .cart-item__btn-cross:active & {
+    fill: $basic-dark;
+    opacity: 0.5;
+  }
+}
+
+.cart-item__image {
+  width: 48px;
+  height: 124px;
+  margin-right: 68px;
+}
+
+.cart-item__guitar-info {
+  width: 350px;
+  margin-right: 7px;
+}
+
+.cart-item__guitar-info h3 {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin: 0;
+  margin-bottom: 14px;
+}
+
+.cart-item__guitar-info p {
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.05em;
+  margin: 0;
+  margin-bottom: 6px;
+}
+
+.cart-item__guitar-info p::first-letter {
+  text-transform: capitalize;
+}
+
+.cart-item__guitar-price {
+  font-size: 20px;
+  letter-spacing: 0.05em;
+  align-self: center;
+}
+
+.cart-item__quantity-wrapper {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+
+.cart-item__btn {
+  cursor: pointer;
+  display: flex;
+  width: 28px;
+  height: 30px;
+  border: 1px solid $input-border-color;
+  background-color: $basic-white;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin: 0;
+  padding: 0;
+
+  &--decrease {
+    background-image: url("../../img/icon-minus.svg");
+    background-size: 8px 1px;
+  }
+
+  &--increase {
+    background-image: url("../../img/icon-plus.svg");
+    background-size: 8px 8px;
+  }
+
+  &:hover {
+    border-color: $dark;
+  }
+
+  &:active {
+    border-color: $grey;
+  }
+}
+
+.cart-item__input {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 28px;
+  height: 30px;
+  border: none;
+  border-top: 1px solid $input-border-color;
+  border-bottom: 1px solid $input-border-color;
+  background-color: $basic-white;
+}
+
+/* Chrome, Safari, Edge, Opera */
+
+.cart-item__input::-webkit-outer-spin-button,
+.cart-item__input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+.cart-item__input[type=number] {
+  -moz-appearance: textfield;
+}
+
+.cart-item__final-price {
+  display: flex;
+  align-self: center;
+  margin-left: auto;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}

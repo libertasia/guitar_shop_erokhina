@@ -1,6 +1,11 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import Header from '../header/header';
 import Footer from '../footer/footer';
+import CartItem from '../cart-item/cart-item';
+import {AppRoute} from '../../const';
+
+const guitars = require(`./../../guitars.json`);
 
 const CartScreen = () => {
   return (
@@ -10,12 +15,33 @@ const CartScreen = () => {
         <div className="container main__container">
           <h1 className="main__title">Корзина</h1>
           <span className="main__page-title-first">Главная</span><span className="main__page-title-second">Каталог</span><span className="main__page-title-third">Оформляем</span>
-        </div>
 
-        <div className="main__cart-wrapper cart">
-          <ul className="cart__list">
+          <div className="main__cart-wrapper cart">
+            <ul className="cart__list">
+              {guitars.map((guitar) =>
+                <CartItem
+                  key={guitar.article}
+                  guitar={guitar}
+                />)}
+            </ul>
 
-          </ul>
+            <div className="cart__ordering-wrapper">
+              <div className="cart__ordering-discount">
+                <h2>Промокод на скидку</h2>
+                <p>Введите свой промокод, если он у вас есть.</p>
+                <div className="cart__promo-code-wrapper">
+                  <label htmlFor="promo-code" className="visually-hidden">Промокод</label>
+                  <input type="text" name="promo-code" id="promo-code" placeholder="GITARAHIT" />
+                  <button type="button">Применить купон</button>
+                </div>
+
+                <div className="cart__processing-order-wrapper">
+                  <p>Всего: 47 000 ₽ </p>
+                  <Link to={AppRoute.ORDER}>Оформить заказ</Link>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </main>
       <Footer />
