@@ -32,13 +32,13 @@ const CartScreen = () => {
                 <div className="cart__promo-code-wrapper">
                   <label htmlFor="promo-code" className="visually-hidden">Промокод</label>
                   <input type="text" name="promo-code" id="promo-code" placeholder="GITARAHIT" />
-                  <button type="button">Применить купон</button>
+                  <button className="cart__promo-apply-btn" type="button">Применить купон</button>
                 </div>
+              </div>
 
-                <div className="cart__processing-order-wrapper">
-                  <p>Всего: 47 000 ₽ </p>
-                  <Link to={AppRoute.ORDER}>Оформить заказ</Link>
-                </div>
+              <div className="cart__processing-order-wrapper">
+                <p>Всего: 47 000 ₽ </p>
+                <Link to={AppRoute.ORDER}>Оформить заказ</Link>
               </div>
             </div>
           </div>

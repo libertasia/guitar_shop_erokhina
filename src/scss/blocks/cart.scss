@@ -7,3 +7,130 @@
   padding: 0;
   border-bottom: 1px solid $border-color;
 }
+
+.cart__ordering-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.cart__ordering-discount h2 {
+  margin: 0;
+  margin-bottom: 9px;
+  padding: 0;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.05em;
+}
+
+.cart__ordering-discount p {
+  margin: 0;
+  padding: 0;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+}
+
+.cart__promo-code-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin-top: 20px;
+}
+
+.cart__promo-code-wrapper input {
+  display: flex;
+  margin: 0;
+  margin-right: 33px;
+  padding: 5px;
+  text-align: center;
+  width: 170px;
+  height: 36px;
+  border-radius: 2px;
+  border: 2px solid $border-color;
+  color: $basic-black;
+  text-transform: uppercase;
+  font-family: $main-font;
+  font-size: 16px;
+  letter-spacing: 0.05em;
+
+  &::placeholder {
+    font-family: $main-font;
+    color: $basic-black;
+    font-size: 16px;
+    letter-spacing: 0.05em;
+  }
+
+  &:hover {
+    border-color: $dark;
+  }
+
+  &:active {
+    border-color: $grey;
+  }
+}
+
+.cart__promo-apply-btn {
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  min-height: 36px;
+  padding: 5px;
+  background-color: $grey;
+  border: none;
+  border-radius: 2px;
+  color: $basic-white;
+  font-family: $main-font;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.05em;
+
+  &:hover {
+    background-color: $dark;
+  }
+
+  &:active {
+    background-color: $input-border-color;
+  }
+}
+
+.cart__processing-order-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.cart__processing-order-wrapper p {
+  margin: 0;
+  margin-bottom: 44px;
+  padding: 0;
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: 0.05em;
+}
+
+.cart__processing-order-wrapper a {
+  margin: 0;
+  padding: 0;
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.05em;
+  color: $basic-white;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 220px;
+  min-height: 36px;
+  border-radius: 2px;
+  background-color: $basic-bright;
+
+  &:hover {
+    background-color: $hover-basic-bright-color;
+  }
+
+  &:active {
+    background-color: $active-basic-bright-color;
+  }
+}

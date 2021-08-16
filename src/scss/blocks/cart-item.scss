@@ -114,7 +114,6 @@
 }
 
 .cart-item__input {
-  cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -125,6 +124,14 @@
   border-top: 1px solid $input-border-color;
   border-bottom: 1px solid $input-border-color;
   background-color: $basic-white;
+
+  &:hover {
+    border: 1px solid $dark;
+  }
+
+  &:active {
+    border: 1px solid $dark;
+  }
 }
 
 /* Chrome, Safari, Edge, Opera */
