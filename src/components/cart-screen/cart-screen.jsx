@@ -11,6 +11,12 @@ const CartScreen = () => {
           <h1 className="main__title">Корзина</h1>
           <span className="main__page-title-first">Главная</span><span className="main__page-title-second">Каталог</span><span className="main__page-title-third">Оформляем</span>
         </div>
+
+        <div className="main__cart-wrapper cart">
+          <ul className="cart__list">
+
+          </ul>
+        </div>
       </main>
       <Footer />
     </React.Fragment>

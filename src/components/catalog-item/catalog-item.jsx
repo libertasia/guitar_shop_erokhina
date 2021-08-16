@@ -32,7 +32,7 @@ const CatalogItem = (props) => {
 
       <div className="catalog-item__info">
         <h3>{guitar.name}</h3>
-        <p>{guitar.price.toLocaleString(DEFAULT_LOCALE)}</p>
+        <p>{guitar.price.toLocaleString(DEFAULT_LOCALE)} &#x20bd;</p>
       </div>
 
       <div className="catalog-item__links">
