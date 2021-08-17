@@ -1,0 +1,17 @@
+.popup-wrapper {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width:100%;
+  height: 100%;
+  background: rgba(63, 63, 63, 0.2);
+}
+
+.popup-wrapper__section {
+  position:fixed;
+  background: $basic-white;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+}

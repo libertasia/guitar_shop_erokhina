@@ -3,6 +3,7 @@ import Header from '../header/header';
 import Footer from '../footer/footer';
 import Filter from '../filter/filter';
 import Catalog from '../catalog/catalog';
+import CartPopup from '../cart-popup/cart-popup';
 
 const CatalogScreen = () => {
   return (
@@ -19,6 +20,7 @@ const CatalogScreen = () => {
           </div>
         </div>
       </main>
+      <CartPopup isVisible={true} />
       <Footer />
     </React.Fragment>
   );
