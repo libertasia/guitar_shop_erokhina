@@ -3,7 +3,8 @@ import Header from '../header/header';
 import Footer from '../footer/footer';
 import Filter from '../filter/filter';
 import Catalog from '../catalog/catalog';
-import CartPopup from '../cart-popup/cart-popup';
+// import CartPopup from '../cart-popup/cart-popup';
+import SuccessPopup from '../success-popup/success-popup';
 
 const CatalogScreen = () => {
   return (
@@ -20,8 +21,9 @@ const CatalogScreen = () => {
           </div>
         </div>
       </main>
-      <CartPopup isVisible={true} />
       <Footer />
+      {/* <CartPopup isVisible={true} /> */}
+      <SuccessPopup isVisible={true}/>
     </React.Fragment>
   );
 };

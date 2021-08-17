@@ -12,7 +12,7 @@ const CartPopup = (props) => {
 
   return (
     <div className={`popup-wrapper ${hiddenClassName}`}>
-      <section className="popup-wrapper__section cart-popup container">
+      <section className="popup-wrapper__section cart-popup">
         <div className="cart-popup__wrapper">
           {isAddToCartPopupOpened &&
             <h2>Добавить товар в корзину</h2>
