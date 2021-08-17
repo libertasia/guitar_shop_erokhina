@@ -7,20 +7,10 @@ import thunk from "redux-thunk";
 import {composeWithDevTools} from 'redux-devtools-extension';
 import {Router as BrowserRouter} from 'react-router-dom';
 import App from './components/app/app';
-// import rootReducer from './store/root-reducer';
-// import {createAPI} from "./store/services/api";
-
-// const api = createAPI();
-
-// const store = createStore(
-//     // rootReducer,
-//     composeWithDevTools(
-//         applyMiddleware(thunk.withExtraArgument(api)),
-//     )
-// );
+import rootReducer from './store/root-reducer';
 
 const store = createStore(
-    // rootReducer,
+    rootReducer,
     composeWithDevTools(
         applyMiddleware(thunk.withExtraArgument()),
     )
