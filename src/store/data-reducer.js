@@ -13,15 +13,38 @@ const dataReducer = (state = initialState, action) => {
         ...state,
         activeProductId: action.payload,
       };
-    case ActionType.SET_IS_IN_CART_STATUS:
-      const guitars = [...state.guitars];
-      const index = guitars.findIndex((item) => item.article === action.payload.guitarId);
-      const activeGuitar = {...guitars[index]};
-      activeGuitar.isInCart = action.payload.isInCart;
-      guitars[index] = activeGuitar;
+    case ActionType.DELETE_FROM_CART:
+      const guitarsForDelete = [...state.guitars];
+      const indexToDelete = guitarsForDelete.findIndex((item) => item.article === action.payload);
+      const deleteGuitar = {...guitarsForDelete[indexToDelete]};
+      deleteGuitar.numInCart = 0;
+      guitarsForDelete[indexToDelete] = deleteGuitar;
       return {
         ...state,
-        guitars,
+        guitars: guitarsForDelete,
+      };
+    case ActionType.ADD_ONE_TO_CART:
+      const guitarsForAdd = [...state.guitars];
+      const indexToAdd = guitarsForAdd.findIndex((item) => item.article === action.payload);
+      const addGuitar = {...guitarsForAdd[indexToAdd]};
+      addGuitar.numInCart += 1;
+      guitarsForAdd[indexToAdd] = addGuitar;
+      return {
+        ...state,
+        guitars: guitarsForAdd,
+      };
+    case ActionType.REMOVE_ONE_FROM_CART:
+      const guitarsForRemove = [...state.guitars];
+      const indexToRemove = guitarsForRemove.findIndex((item) => item.article === action.payload);
+      const removeGuitar = {...guitarsForRemove[indexToRemove]};
+      removeGuitar.numInCart -= 1;
+      if (removeGuitar.numInCart < 0) {
+        removeGuitar.numInCart = 0;
+      }
+      guitarsForRemove[indexToRemove] = removeGuitar;
+      return {
+        ...state,
+        guitars: guitarsForRemove,
       };
   }
 

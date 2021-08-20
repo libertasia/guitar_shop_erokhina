@@ -3,7 +3,9 @@ export const ActionType = {
   SET_IS_DELETE_FROM_CART_POPUP_OPENED: `view/setIsDeleteFromCartPopupOpened`,
   SET_IS_SUCCESS_POPUP_OPENED: `view/setIsSuccessPopupOpened`,
   SET_ACTIVE_PRODUCT: `data/setActiveProduct`,
-  SET_IS_IN_CART_STATUS: `data/setIsInCartStatus`,
+  DELETE_FROM_CART: `data/deleteFromCart`,
+  ADD_ONE_TO_CART: `data/addOneToCart`,
+  REMOVE_ONE_FROM_CART: `data/removeOneFromCart`,
 };
 
 export const ActionCreator = {
@@ -23,8 +25,16 @@ export const ActionCreator = {
     type: ActionType.SET_ACTIVE_PRODUCT,
     payload: guitarId
   }),
-  setIsInCartStatus: (guitarId, isInCart) => ({
-    type: ActionType.SET_IS_IN_CART_STATUS,
-    payload: {guitarId, isInCart}
+  deleteFromCart: (guitarId) => ({
+    type: ActionType.DELETE_FROM_CART,
+    payload: guitarId
+  }),
+  addOneToCart: (guitarId) => ({
+    type: ActionType.ADD_ONE_TO_CART,
+    payload: guitarId
+  }),
+  removeOneFromCart: (guitarId) => ({
+    type: ActionType.REMOVE_ONE_FROM_CART,
+    payload: guitarId
   }),
 };

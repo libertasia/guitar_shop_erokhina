@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 import {AppRoute, DEFAULT_LOCALE, Rating} from '../../const';
 import {ActionCreator} from '../../store/action';
+import {GuitarShape} from '../../utils';
 
 const CatalogItem = (props) => {
 
@@ -50,17 +51,7 @@ const CatalogItem = (props) => {
 };
 
 CatalogItem.propTypes = {
-  guitar: PropTypes.shape({
-    article: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
-    reviews: PropTypes.number.isRequired,
-    strings: PropTypes.number.isRequired,
-    price: PropTypes.number.isRequired,
-    imageName: PropTypes.string.isRequired,
-    rating: PropTypes.number.isRequired,
-    isInCart: PropTypes.bool.isRequired,
-  }).isRequired,
+  guitar: GuitarShape,
   onBuyProductBtnClick: PropTypes.func.isRequired,
 };
 

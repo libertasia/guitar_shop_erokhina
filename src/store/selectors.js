@@ -11,7 +11,7 @@ export const getActiveProductId = (state) => state[NameSpace.DATA].activeProduct
 export const getGuitarsInCart = createSelector(
     [getAllGuitars],
     (guitars) => {
-      return guitars.filter((guitar) => guitar.isInCart);
+      return guitars.filter((guitar) => guitar.numInCart > 0);
     }
 );
 

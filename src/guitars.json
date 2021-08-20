@@ -8,7 +8,7 @@
     "price": 17500,
     "imageName": "electric",
     "rating": 5,
-    "isInCart": false
+    "numInCart": 0
   },
   {
     "article": "TK129049",
@@ -19,7 +19,7 @@
     "price": 29500,
     "imageName": "electric-curt-z300",
     "rating": 5,
-    "isInCart": false
+    "numInCart": 0
   },
   {
     "article": "RO111111",
@@ -30,7 +30,7 @@
     "price": 6800,
     "imageName": "ukulele",
     "rating": 3,
-    "isInCart": false
+    "numInCart": 0
   },
   {
     "article": "TK436457",
@@ -41,7 +41,7 @@
     "price": 30000,
     "imageName": "electric-curt-t300",
     "rating": 5,
-    "isInCart": false
+    "numInCart": 0
   },
   {
     "article": "DI192138",
@@ -52,7 +52,7 @@
     "price": 3500,
     "imageName": "acoustic",
     "rating": 4,
-    "isInCart": false
+    "numInCart": 0
   },
   {
     "article": "SO934345",
@@ -63,7 +63,7 @@
     "price": 15300,
     "imageName": "electric",
     "rating": 4,
-    "isInCart": false
+    "numInCart": 0
   },
   {
     "article": "DI082347",
@@ -74,7 +74,7 @@
     "price": 2200,
     "imageName": "ukulele",
     "rating": 4,
-    "isInCart": false
+    "numInCart": 0
   },
   {
     "article": "SO135646",
@@ -85,7 +85,7 @@
     "price": 30000,
     "imageName": "electric-chester-plus",
     "rating": 5,
-    "isInCart": false
+    "numInCart": 0
   },
   {
     "article": "VO154751",
@@ -96,7 +96,7 @@
     "price": 1700,
     "imageName": "acoustic",
     "rating": 3,
-    "isInCart": false
+    "numInCart": 0
   },
   {
     "article": "TK244556",
@@ -107,7 +107,7 @@
     "price": 23000,
     "imageName": "electric",
     "rating": 5,
-    "isInCart": false
+    "numInCart": 0
   },
   {
     "article": "TK134663",
@@ -118,7 +118,7 @@
     "price": 18700,
     "imageName": "electric",
     "rating": 5,
-    "isInCart": false
+    "numInCart": 0
   },
   {
     "article": "SO123212",
@@ -129,7 +129,7 @@
     "price": 35000,
     "imageName": "electric",
     "rating": 4,
-    "isInCart": false
+    "numInCart": 0
   },
   {
     "article": "SO123234",
@@ -140,7 +140,7 @@
     "price": 14900,
     "imageName": "electric",
     "rating": 5,
-    "isInCart": false
+    "numInCart": 0
   },
   {
     "article": "VO519510",
@@ -151,7 +151,7 @@
     "price": 7600,
     "imageName": "acoustic",
     "rating": 2,
-    "isInCart": false
+    "numInCart": 0
   },
   {
     "article": "VO457369",
@@ -162,7 +162,7 @@
     "price": 6500,
     "imageName": "acoustic",
     "rating": 4,
-    "isInCart": false
+    "numInCart": 0
   },
   {
     "article": "FB625903",
@@ -173,7 +173,7 @@
     "price": 12000,
     "imageName": "acoustic",
     "rating": 5,
-    "isInCart": false
+    "numInCart": 0
   },
   {
     "article": "FB576948",
@@ -184,7 +184,7 @@
     "price": 9900,
     "imageName": "acoustic",
     "rating": 5,
-    "isInCart": false
+    "numInCart": 0
   },
   {
     "article": "LU012032",
@@ -195,7 +195,7 @@
     "price": 8900,
     "imageName": "acoustic",
     "rating": 4,
-    "isInCart": false
+    "numInCart": 0
   },
   {
     "article": "LU546853",
@@ -206,7 +206,7 @@
     "price": 10500,
     "imageName": "acoustic",
     "rating": 4,
-    "isInCart": false
+    "numInCart": 0
   },
   {
     "article": "LU458283",
@@ -217,7 +217,7 @@
     "price": 13300,
     "imageName": "acoustic",
     "rating": 5,
-    "isInCart": false
+    "numInCart": 0
   },
   {
     "article": "RO324341",
@@ -228,7 +228,7 @@
     "price": 4800,
     "imageName": "ukulele",
     "rating": 4,
-    "isInCart": false
+    "numInCart": 0
   },
   {
     "article": "RO214235",
@@ -239,7 +239,7 @@
     "price": 1900,
     "imageName": "ukulele",
     "rating": 5,
-    "isInCart": false
+    "numInCart": 0
   },
   {
     "article": "DI132414",
@@ -250,7 +250,7 @@
     "price": 2500,
     "imageName": "ukulele",
     "rating": 4,
-    "isInCart": false
+    "numInCart": 0
   },
   {
     "article": "DI934754",
@@ -261,7 +261,7 @@
     "price": 3800,
     "imageName": "ukulele",
     "rating": 5,
-    "isInCart": false
+    "numInCart": 0
   },
   {
     "article": "DI034292",
@@ -272,7 +272,7 @@
     "price": 4100,
     "imageName": "ukulele",
     "rating": 4,
-    "isInCart": false
+    "numInCart": 0
   },
   {
     "article": "MI193214",
@@ -283,7 +283,7 @@
     "price": 2700,
     "imageName": "ukulele",
     "rating": 4,
-    "isInCart": false
+    "numInCart": 0
   },
   {
     "article": "VO043244",
@@ -294,6 +294,6 @@
     "price": 6700,
     "imageName": "ukulele",
     "rating": 5,
-    "isInCart": false
+    "numInCart": 0
   }
 ]

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import {DEFAULT_LOCALE, ClassName, Event, ESC_KEY_CODE} from '../../const';
 import sprite from '../../img/sprite.svg';
 import {getActiveGuitar, getIsAddToCartPopupVisibleStatus, getIsDeleteFromCartPopupVisibleStatus} from '../../store/selectors';
-import {onOverlayClick} from '../../utils';
+import {onOverlayClick, GuitarShape} from '../../utils';
 import {ActionCreator} from '../../store/action';
 
 const CartPopup = (props) => {
@@ -26,7 +26,7 @@ const CartPopup = (props) => {
 
   const handleAddBtnClick = () => {
     handleClose(false);
-    onAddBtnClick(guitar, true);
+    onAddBtnClick(guitar);
   };
 
   const handleDeleteBtnClick = () => {
@@ -108,17 +108,7 @@ const CartPopup = (props) => {
 };
 
 CartPopup.propTypes = {
-  guitar: PropTypes.shape({
-    article: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
-    reviews: PropTypes.number.isRequired,
-    strings: PropTypes.number.isRequired,
-    price: PropTypes.number.isRequired,
-    imageName: PropTypes.string.isRequired,
-    rating: PropTypes.number.isRequired,
-    isInCart: PropTypes.bool.isRequired,
-  }),
+  guitar: GuitarShape,
   isVisible: PropTypes.bool.isRequired,
   isAddToCartPopupOpened: PropTypes.bool.isRequired,
   isDeleteFromCartPopupOpened: PropTypes.bool.isRequired,
@@ -140,10 +130,10 @@ const mapDispatchToProps = (dispatch) => ({
   },
   onAddBtnClick(guitar) {
     dispatch(ActionCreator.setIsSuccessPopupOpened(true));
-    dispatch(ActionCreator.setIsInCartStatus(guitar.article, true));
+    dispatch(ActionCreator.addOneToCart(guitar.article));
   },
   onDeleteBtnClick(guitar) {
-    dispatch(ActionCreator.setIsInCartStatus(guitar.article, false));
+    dispatch(ActionCreator.deleteFromCart(guitar.article));
   }
 });
 

@@ -5,6 +5,7 @@ import sprite from '../../img/sprite.svg';
 import CatalogItem from '../catalog-item/catalog-item';
 import Pagination from '../pagination/pagination';
 import {getAllGuitars} from '../../store/selectors';
+import {GuitarShape} from '../../utils';
 
 const MAX_ITEMS_COUNT_PER_PAGE = 9;
 
@@ -64,19 +65,7 @@ const Catalog = (props) => {
 };
 
 Catalog.propTypes = {
-  guitars: PropTypes.arrayOf(
-      PropTypes.shape({
-        article: PropTypes.string.isRequired,
-        name: PropTypes.string.isRequired,
-        type: PropTypes.string.isRequired,
-        reviews: PropTypes.number.isRequired,
-        strings: PropTypes.number.isRequired,
-        price: PropTypes.number.isRequired,
-        imageName: PropTypes.string.isRequired,
-        rating: PropTypes.number.isRequired,
-        isInCart: PropTypes.bool.isRequired,
-      }).isRequired,
-  ).isRequired,
+  guitars: PropTypes.arrayOf(GuitarShape).isRequired,
 };
 
 const mapStateToProps = (state) => ({

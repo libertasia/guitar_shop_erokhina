@@ -4,14 +4,25 @@ import PropTypes from 'prop-types';
 import {DEFAULT_LOCALE} from '../../const';
 import sprite from '../../img/sprite.svg';
 import {ActionCreator} from '../../store/action';
+import {GuitarShape} from '../../utils';
 
 const CartItem = (props) => {
 
-  const {guitar, onRemoveProductBtnClick} = props;
+  const {guitar, onRemoveProductBtnClick, onDecreaseBtnClick, onIncreaseBtnClick} = props;
 
   const handleDeleteProductBtnClick = () => {
     onRemoveProductBtnClick(guitar.article);
   };
+
+  const handleDecreaseBtnClick = () => {
+    onDecreaseBtnClick(guitar.article, guitar.numInCart);
+  };
+
+  const handleIncreaseBtnClick = () => {
+    onIncreaseBtnClick(guitar.article);
+  };
+
+  const finalItemPrice = (guitar.price * guitar.numInCart).toLocaleString(DEFAULT_LOCALE);
 
   return (
     <li className="cart__list-item cart-item">
@@ -38,38 +49,41 @@ const CartItem = (props) => {
       </div>
 
       <div className="cart-item__quantity-wrapper">
-        <button type="button" className="cart-item__btn cart-item__btn--decrease" aria-label="Уменьшить количество товара" />
+        <button type="button" className="cart-item__btn cart-item__btn--decrease" aria-label="Уменьшить количество товара" onClick={handleDecreaseBtnClick} />
         <label htmlFor={`${guitar.article}-quantity`} className="visually-hidden">Изменить количество товара</label>
-        <input className="cart-item__input" type="number" name={`${guitar.article}-quantity`} id={`${guitar.article}-quantity`} defaultValue={1} />
-        <button type="button" className="cart-item__btn cart-item__btn--increase" aria-label="Увеличить количество товара" />
+        <input className="cart-item__input" type="number" name={`${guitar.article}-quantity`} id={`${guitar.article}-quantity`} value={guitar.numInCart} readOnly />
+        <button type="button" className="cart-item__btn cart-item__btn--increase" aria-label="Увеличить количество товара" onClick={handleIncreaseBtnClick} />
       </div>
 
       <div className="cart-item__final-price">
-        <span>{guitar.price.toLocaleString(DEFAULT_LOCALE)} &#x20bd;</span>
+        <span>{finalItemPrice} &#x20bd;</span>
       </div>
     </li>
   );
 };
 
 CartItem.propTypes = {
-  guitar: PropTypes.shape({
-    article: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
-    reviews: PropTypes.number.isRequired,
-    strings: PropTypes.number.isRequired,
-    price: PropTypes.number.isRequired,
-    imageName: PropTypes.string.isRequired,
-    rating: PropTypes.number.isRequired,
-    isInCart: PropTypes.bool.isRequired,
-  }).isRequired,
+  guitar: GuitarShape,
   onRemoveProductBtnClick: PropTypes.func.isRequired,
+  onDecreaseBtnClick: PropTypes.func.isRequired,
+  onIncreaseBtnClick: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => ({
   onRemoveProductBtnClick(id) {
     dispatch(ActionCreator.setActiveProductId(id));
     dispatch(ActionCreator.setIsDeleteFromCartPopupOpened(true));
+  },
+  onDecreaseBtnClick(id, numInCart) {
+    if (numInCart > 1) {
+      dispatch(ActionCreator.removeOneFromCart(id));
+    } else {
+      dispatch(ActionCreator.setActiveProductId(id));
+      dispatch(ActionCreator.setIsDeleteFromCartPopupOpened(true));
+    }
+  },
+  onIncreaseBtnClick(id) {
+    dispatch(ActionCreator.addOneToCart(id));
   },
 });
 

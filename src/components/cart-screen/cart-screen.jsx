@@ -8,6 +8,7 @@ import CartItem from '../cart-item/cart-item';
 import CartPopup from '../cart-popup/cart-popup';
 import {AppRoute} from '../../const';
 import {getGuitarsInCart, getIsDeleteFromCartPopupVisibleStatus} from '../../store/selectors';
+import {GuitarShape} from '../../utils';
 
 const CartScreen = (props) => {
   const {guitarsInCart, isDeleteFromCartPopupOpened} = props;
@@ -60,19 +61,7 @@ const CartScreen = (props) => {
 
 CartScreen.propTypes = {
   isDeleteFromCartPopupOpened: PropTypes.bool.isRequired,
-  guitarsInCart: PropTypes.arrayOf(
-      PropTypes.shape({
-        article: PropTypes.string.isRequired,
-        name: PropTypes.string.isRequired,
-        type: PropTypes.string.isRequired,
-        reviews: PropTypes.number.isRequired,
-        strings: PropTypes.number.isRequired,
-        price: PropTypes.number.isRequired,
-        imageName: PropTypes.string.isRequired,
-        rating: PropTypes.number.isRequired,
-        isInCart: PropTypes.bool.isRequired,
-      })
-  ),
+  guitarsInCart: PropTypes.arrayOf(GuitarShape),
 };
 
 const mapStateToProps = (state) => ({

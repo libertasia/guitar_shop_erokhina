@@ -1,5 +1,18 @@
 import {useEffect} from 'react';
+import PropTypes from 'prop-types';
 import {Event} from './const';
+
+const GuitarShape = PropTypes.shape({
+  article: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
+  reviews: PropTypes.number.isRequired,
+  strings: PropTypes.number.isRequired,
+  price: PropTypes.number.isRequired,
+  imageName: PropTypes.string.isRequired,
+  rating: PropTypes.number.isRequired,
+  numInCart: PropTypes.number.isRequired,
+});
 
 const onOverlayClick = (ref, handler) => {
   useEffect(() => {
@@ -22,4 +35,4 @@ const onOverlayClick = (ref, handler) => {
 
 // const zeroPad = (num, places) => String(num).padStart(places, `0`);
 
-export {onOverlayClick};
+export {onOverlayClick, GuitarShape};
