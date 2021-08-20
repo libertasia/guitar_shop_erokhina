@@ -1,10 +1,17 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 import {AppRoute} from '../../const';
 import logo from '../../img/logo.svg';
 import sprite from '../../img/sprite.svg';
+import {getGuitarsInCart} from '../../store/selectors';
 
-const Header = () => {
+const Header = (props) => {
+  const {guitarsInCart} = props;
+
+  const isGuitarsInCart = guitarsInCart.length === 0 ? false : true;
+
   return (
     <header className="header">
       <nav className="container header__navigation">
@@ -45,7 +52,9 @@ const Header = () => {
                 <use href={sprite + `#icon-cart`} />
               </svg>
             </Link>
-            <span>2</span>
+            {isGuitarsInCart &&
+              <span>{guitarsInCart.length}</span>
+            }
           </li>
         </ul>
       </nav>
@@ -53,4 +62,25 @@ const Header = () => {
   );
 };
 
-export default Header;
+Header.propTypes = {
+  guitarsInCart: PropTypes.arrayOf(
+      PropTypes.shape({
+        article: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        type: PropTypes.string.isRequired,
+        reviews: PropTypes.number.isRequired,
+        strings: PropTypes.number.isRequired,
+        price: PropTypes.number.isRequired,
+        imageName: PropTypes.string.isRequired,
+        rating: PropTypes.number.isRequired,
+        isInCart: PropTypes.bool.isRequired,
+      })
+  ),
+};
+
+const mapStateToProps = (state) => ({
+  guitarsInCart: getGuitarsInCart(state),
+});
+
+export {Header};
+export default connect(mapStateToProps, null)(Header);

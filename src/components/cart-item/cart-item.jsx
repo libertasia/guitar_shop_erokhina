@@ -10,7 +10,7 @@ const CartItem = (props) => {
   const {guitar, onRemoveProductBtnClick} = props;
 
   const handleDeleteProductBtnClick = () => {
-    onRemoveProductBtnClick(true);
+    onRemoveProductBtnClick(guitar.article);
   };
 
   return (
@@ -67,8 +67,9 @@ CartItem.propTypes = {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  onRemoveProductBtnClick(payload) {
-    dispatch(ActionCreator.setIsDeleteFromCartPopupOpened(payload));
+  onRemoveProductBtnClick(id) {
+    dispatch(ActionCreator.setActiveProductId(id));
+    dispatch(ActionCreator.setIsDeleteFromCartPopupOpened(true));
   },
 });
 

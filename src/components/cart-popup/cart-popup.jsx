@@ -3,14 +3,12 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {DEFAULT_LOCALE, ClassName, Event, ESC_KEY_CODE} from '../../const';
 import sprite from '../../img/sprite.svg';
-import {getIsAddToCartPopupVisibleStatus, getIsDeleteFromCartPopupVisibleStatus} from '../../store/selectors';
+import {getActiveGuitar, getIsAddToCartPopupVisibleStatus, getIsDeleteFromCartPopupVisibleStatus} from '../../store/selectors';
 import {onOverlayClick} from '../../utils';
 import {ActionCreator} from '../../store/action';
 
-const guitars = require(`./../../guitars.json`);
-
 const CartPopup = (props) => {
-  const {guitar = guitars[0], isVisible, isAddToCartPopupOpened, isDeleteFromCartPopupOpened, handleClose, onAddBtnClick} = props;
+  const {guitar, isVisible, isAddToCartPopupOpened, isDeleteFromCartPopupOpened, handleClose, onAddBtnClick, onDeleteBtnClick} = props;
 
   const hiddenClassName = isVisible ? ClassName.DISPLAY_BLOCK : ClassName.DISPLAY_NONE;
 
@@ -28,11 +26,12 @@ const CartPopup = (props) => {
 
   const handleAddBtnClick = () => {
     handleClose(false);
-    onAddBtnClick(true);
+    onAddBtnClick(guitar, true);
   };
 
   const handleDeleteBtnClick = () => {
     handleClose(false);
+    onDeleteBtnClick(guitar, false);
   };
 
   const handleEscPress = (evt) => {
@@ -59,6 +58,7 @@ const CartPopup = (props) => {
   }, []);
 
   return (
+    isVisible &&
     <div className={`popup-wrapper ${hiddenClassName}`}>
       <section ref={ref} className="popup-wrapper__section cart-popup">
         <div className="cart-popup__wrapper">
@@ -118,15 +118,17 @@ CartPopup.propTypes = {
     imageName: PropTypes.string.isRequired,
     rating: PropTypes.number.isRequired,
     isInCart: PropTypes.bool.isRequired,
-  }).isRequired,
+  }),
   isVisible: PropTypes.bool.isRequired,
   isAddToCartPopupOpened: PropTypes.bool.isRequired,
   isDeleteFromCartPopupOpened: PropTypes.bool.isRequired,
   handleClose: PropTypes.func.isRequired,
   onAddBtnClick: PropTypes.func.isRequired,
+  onDeleteBtnClick: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
+  guitar: getActiveGuitar(state),
   isAddToCartPopupOpened: getIsAddToCartPopupVisibleStatus(state),
   isDeleteFromCartPopupOpened: getIsDeleteFromCartPopupVisibleStatus(state),
 });
@@ -136,8 +138,12 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(ActionCreator.setIsAddToCartPopupOpened(payload));
     dispatch(ActionCreator.setIsDeleteFromCartPopupOpened(payload));
   },
-  onAddBtnClick(payload) {
-    dispatch(ActionCreator.setIsSuccessPopupOpened(payload));
+  onAddBtnClick(guitar) {
+    dispatch(ActionCreator.setIsSuccessPopupOpened(true));
+    dispatch(ActionCreator.setIsInCartStatus(guitar.article, true));
+  },
+  onDeleteBtnClick(guitar) {
+    dispatch(ActionCreator.setIsInCartStatus(guitar.article, false));
   }
 });
 

@@ -1,12 +1,16 @@
 import React, {useState, useMemo} from 'react';
+import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
 import sprite from '../../img/sprite.svg';
 import CatalogItem from '../catalog-item/catalog-item';
 import Pagination from '../pagination/pagination';
+import {getAllGuitars} from '../../store/selectors';
 
-const guitars = require(`./../../guitars.json`);
 const MAX_ITEMS_COUNT_PER_PAGE = 9;
 
-const Catalog = () => {
+const Catalog = (props) => {
+  const {guitars} = props;
+
   const [currentPage, setCurrentPage] = useState(1);
 
   const currentGuitarData = useMemo(() => {
@@ -59,4 +63,25 @@ const Catalog = () => {
   );
 };
 
-export default Catalog;
+Catalog.propTypes = {
+  guitars: PropTypes.arrayOf(
+      PropTypes.shape({
+        article: PropTypes.string.isRequired,
+        name: PropTypes.string.isRequired,
+        type: PropTypes.string.isRequired,
+        reviews: PropTypes.number.isRequired,
+        strings: PropTypes.number.isRequired,
+        price: PropTypes.number.isRequired,
+        imageName: PropTypes.string.isRequired,
+        rating: PropTypes.number.isRequired,
+        isInCart: PropTypes.bool.isRequired,
+      }).isRequired,
+  ).isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  guitars: getAllGuitars(state),
+});
+
+export {Catalog};
+export default connect(mapStateToProps, null)(Catalog);

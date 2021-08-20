@@ -10,7 +10,7 @@ const CatalogItem = (props) => {
   const {guitar, onBuyProductBtnClick} = props;
 
   const handleBuyProductBtnClick = () => {
-    onBuyProductBtnClick(true);
+    onBuyProductBtnClick(guitar.article);
   };
 
   return (
@@ -65,8 +65,9 @@ CatalogItem.propTypes = {
 };
 
 const mapDispatchToProps = (dispatch) => ({
-  onBuyProductBtnClick(payload) {
-    dispatch(ActionCreator.setIsAddToCartPopupOpened(payload));
+  onBuyProductBtnClick(id) {
+    dispatch(ActionCreator.setActiveProductId(id));
+    dispatch(ActionCreator.setIsAddToCartPopupOpened(true));
   },
 });
 
