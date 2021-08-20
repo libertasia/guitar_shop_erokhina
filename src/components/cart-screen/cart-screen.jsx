@@ -1,14 +1,19 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 import Header from '../header/header';
 import Footer from '../footer/footer';
 import CartItem from '../cart-item/cart-item';
 import CartPopup from '../cart-popup/cart-popup';
 import {AppRoute} from '../../const';
+import {getIsDeleteFromCartPopupVisibleStatus} from '../../store/selectors';
 
 const guitars = require(`./../../guitars.json`);
 
-const CartScreen = () => {
+const CartScreen = (props) => {
+  const {isDeleteFromCartPopupOpened} = props;
+
   return (
     <React.Fragment>
       <Header />
@@ -46,9 +51,19 @@ const CartScreen = () => {
         </div>
       </main>
       <Footer />
-      <CartPopup isVisible={false} />
+      <CartPopup isVisible={isDeleteFromCartPopupOpened} />
     </React.Fragment>
   );
 };
 
-export default CartScreen;
+CartScreen.propTypes = {
+  isDeleteFromCartPopupOpened: PropTypes.bool.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  isDeleteFromCartPopupOpened: getIsDeleteFromCartPopupVisibleStatus(state),
+});
+
+export {CartScreen};
+export default connect(mapStateToProps, null)(CartScreen);
+

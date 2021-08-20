@@ -25,10 +25,6 @@ const SuccessPopup = (props) => {
     handleClose(false);
   };
 
-  const handleContinueBtnClick = () => {
-    handleClose(false);
-  };
-
   const handleEscPress = (evt) => {
     if (evt.keyCode === ESC_KEY_CODE) {
       handleClose(false);
@@ -66,8 +62,8 @@ const SuccessPopup = (props) => {
           </button>
 
           <div className="success-popup__buttons-wrapper">
-            <Link to={AppRoute.CART} className="success-popup__btn success-popup__btn--go-to-cart" type="button">Перейти в корзину</Link>
-            <button className="success-popup__btn success-popup__btn--continue" type="button" onClick={handleContinueBtnClick}>Продолжить покупки</button>
+            <Link to={AppRoute.CART} className="success-popup__btn success-popup__btn--go-to-cart" type="button" onClick={handleClosePopupBtnClick}>Перейти в корзину</Link>
+            <button className="success-popup__btn success-popup__btn--continue" type="button" onClick={handleClosePopupBtnClick}>Продолжить покупки</button>
           </div>
         </div>
       </section>

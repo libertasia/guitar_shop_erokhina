@@ -10,7 +10,7 @@ import {ActionCreator} from '../../store/action';
 const guitars = require(`./../../guitars.json`);
 
 const CartPopup = (props) => {
-  const {guitar = guitars[0], isVisible, isAddToCartPopupOpened, isDeleteFromCartPopupOpened, handleClose} = props;
+  const {guitar = guitars[0], isVisible, isAddToCartPopupOpened, isDeleteFromCartPopupOpened, handleClose, onAddBtnClick} = props;
 
   const hiddenClassName = isVisible ? ClassName.DISPLAY_BLOCK : ClassName.DISPLAY_NONE;
 
@@ -23,6 +23,15 @@ const CartPopup = (props) => {
   };
 
   const handleClosePopupBtnClick = () => {
+    handleClose(false);
+  };
+
+  const handleAddBtnClick = () => {
+    handleClose(false);
+    onAddBtnClick(true);
+  };
+
+  const handleDeleteBtnClick = () => {
     handleClose(false);
   };
 
@@ -82,13 +91,13 @@ const CartPopup = (props) => {
 
             {isAddToCartPopupOpened &&
               <div className="cart-popup__buttons-wrapper">
-                <button className="cart-popup__btn cart-popup__btn--add" type="button">Добавить в корзину</button>
+                <button className="cart-popup__btn cart-popup__btn--add" type="button" onClick={handleAddBtnClick}>Добавить в корзину</button>
               </div>
             }
             {isDeleteFromCartPopupOpened &&
               <div className="cart-popup__buttons-wrapper">
-                <button className="cart-popup__btn cart-popup__btn--delete" type="button">Удалить товар</button>
-                <button className="cart-popup__btn cart-popup__btn--continue" type="button">Продолжить покупки</button>
+                <button className="cart-popup__btn cart-popup__btn--delete" type="button" onClick={handleDeleteBtnClick}>Удалить товар</button>
+                <button className="cart-popup__btn cart-popup__btn--continue" type="button" onClick={handleClosePopupBtnClick}>Продолжить покупки</button>
               </div>
             }
           </div>
@@ -114,6 +123,7 @@ CartPopup.propTypes = {
   isAddToCartPopupOpened: PropTypes.bool.isRequired,
   isDeleteFromCartPopupOpened: PropTypes.bool.isRequired,
   handleClose: PropTypes.func.isRequired,
+  onAddBtnClick: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -126,6 +136,9 @@ const mapDispatchToProps = (dispatch) => ({
     dispatch(ActionCreator.setIsAddToCartPopupOpened(payload));
     dispatch(ActionCreator.setIsDeleteFromCartPopupOpened(payload));
   },
+  onAddBtnClick(payload) {
+    dispatch(ActionCreator.setIsSuccessPopupOpened(payload));
+  }
 });
 
 export {CartPopup};

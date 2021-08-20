@@ -1,15 +1,21 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {DEFAULT_LOCALE} from '../../const';
 import sprite from '../../img/sprite.svg';
+import {ActionCreator} from '../../store/action';
 
 const CartItem = (props) => {
 
-  const {guitar} = props;
+  const {guitar, onRemoveProductBtnClick} = props;
+
+  const handleDeleteProductBtnClick = () => {
+    onRemoveProductBtnClick(true);
+  };
 
   return (
     <li className="cart__list-item cart-item">
-      <button className="cart-item__btn-cross" type="button">
+      <button className="cart-item__btn-cross" type="button" onClick={handleDeleteProductBtnClick}>
         <span className="visually-hidden">Удалить товар из корзины</span>
         <svg className="cart-item__icon-cross" width={18} height={18}>
           <use href={sprite + `#cross`} />
@@ -57,6 +63,14 @@ CartItem.propTypes = {
     rating: PropTypes.number.isRequired,
     isInCart: PropTypes.bool.isRequired,
   }).isRequired,
+  onRemoveProductBtnClick: PropTypes.func.isRequired,
 };
 
-export default CartItem;
+const mapDispatchToProps = (dispatch) => ({
+  onRemoveProductBtnClick(payload) {
+    dispatch(ActionCreator.setIsDeleteFromCartPopupOpened(payload));
+  },
+});
+
+export {CartItem};
+export default connect(null, mapDispatchToProps)(CartItem);
