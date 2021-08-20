@@ -1,11 +1,17 @@
 import React from 'react';
+import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
 import {AppRoute, DEFAULT_LOCALE, Rating} from '../../const';
+import {ActionCreator} from '../../store/action';
 
 const CatalogItem = (props) => {
 
-  const {guitar} = props;
+  const {guitar, onBuyProductBtnClick} = props;
+
+  const handleBuyProductBtnClick = () => {
+    onBuyProductBtnClick(true);
+  };
 
   return (
     <li className="catalog__list-item catalog-item">
@@ -37,7 +43,7 @@ const CatalogItem = (props) => {
 
       <div className="catalog-item__links">
         <Link to={AppRoute.GUITAR} className="catalog-item__item-info-link">Подробнее</Link>
-        <button className="catalog-item__buy-product-btn" type="button">Купить</button>
+        <button className="catalog-item__buy-product-btn" type="button" onClick={handleBuyProductBtnClick}>Купить</button>
       </div>
     </li>
   );
@@ -53,7 +59,16 @@ CatalogItem.propTypes = {
     price: PropTypes.number.isRequired,
     imageName: PropTypes.string.isRequired,
     rating: PropTypes.number.isRequired,
+    isInCart: PropTypes.bool.isRequired,
   }).isRequired,
+  onBuyProductBtnClick: PropTypes.func.isRequired,
 };
 
-export default CatalogItem;
+const mapDispatchToProps = (dispatch) => ({
+  onBuyProductBtnClick(payload) {
+    dispatch(ActionCreator.setIsAddToCartPopupOpened(payload));
+  },
+});
+
+export {CatalogItem};
+export default connect(null, mapDispatchToProps)(CatalogItem);

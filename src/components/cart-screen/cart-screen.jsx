@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import Header from '../header/header';
 import Footer from '../footer/footer';
 import CartItem from '../cart-item/cart-item';
+import CartPopup from '../cart-popup/cart-popup';
 import {AppRoute} from '../../const';
 
 const guitars = require(`./../../guitars.json`);
@@ -45,6 +46,7 @@ const CartScreen = () => {
         </div>
       </main>
       <Footer />
+      <CartPopup isVisible={false} />
     </React.Fragment>
   );
 };

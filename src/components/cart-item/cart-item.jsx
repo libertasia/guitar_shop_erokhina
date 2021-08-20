@@ -55,6 +55,7 @@ CartItem.propTypes = {
     price: PropTypes.number.isRequired,
     imageName: PropTypes.string.isRequired,
     rating: PropTypes.number.isRequired,
+    isInCart: PropTypes.bool.isRequired,
   }).isRequired,
 };
 

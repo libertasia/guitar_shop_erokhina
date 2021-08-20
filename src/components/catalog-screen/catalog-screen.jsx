@@ -1,12 +1,18 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import PropTypes from 'prop-types';
 import Header from '../header/header';
 import Footer from '../footer/footer';
 import Filter from '../filter/filter';
 import Catalog from '../catalog/catalog';
-// import CartPopup from '../cart-popup/cart-popup';
+import CartPopup from '../cart-popup/cart-popup';
 import SuccessPopup from '../success-popup/success-popup';
+import {getIsAddToCartPopupVisibleStatus, getIsSuccessPopupVisibleStatus} from '../../store/selectors';
 
-const CatalogScreen = () => {
+const CatalogScreen = (props) => {
+
+  const {isAddToCartPopupOpened, isSuccessPopupOpened} = props;
+
   return (
     <React.Fragment>
       <Header />
@@ -22,10 +28,21 @@ const CatalogScreen = () => {
         </div>
       </main>
       <Footer />
-      {/* <CartPopup isVisible={true} /> */}
-      <SuccessPopup isVisible={true}/>
+      <CartPopup isVisible={isAddToCartPopupOpened} />
+      <SuccessPopup isVisible={isSuccessPopupOpened}/>
     </React.Fragment>
   );
 };
 
-export default CatalogScreen;
+CatalogScreen.propTypes = {
+  isAddToCartPopupOpened: PropTypes.bool.isRequired,
+  isSuccessPopupOpened: PropTypes.bool.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+  isAddToCartPopupOpened: getIsAddToCartPopupVisibleStatus(state),
+  isSuccessPopupOpened: getIsSuccessPopupVisibleStatus(state),
+});
+
+export {CatalogScreen};
+export default connect(mapStateToProps, null)(CatalogScreen);
