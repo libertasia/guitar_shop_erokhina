@@ -4,6 +4,14 @@ const ESC_KEY_CODE = 27;
 
 const RADIX = 10;
 
+const GITARAHIT_DISCOUNT_VALUE = 0.1;
+
+const SUPERGITARA_DISCOUNT_VALUE = 700;
+
+const GITARA2020_DISCOUNT_VALUE = 3500;
+
+const MAX_GITARA2020_DISCOUNT_VALUE = 0.3;
+
 const Event = {
   WHEEL: `wheel`,
   KEY_DOWN: `keydown`,
@@ -38,4 +46,10 @@ const Rating = {
   FIVE: 5,
 };
 
-export {AppRoute, APIRoute, ClassName, DEFAULT_LOCALE, Rating, Event, ESC_KEY_CODE, RADIX};
+const PromoCode = {
+  GITARAHIT: `gitarahit`,
+  SUPERGITARA: `supergitara`,
+  GITARA2020: `gitara2020`,
+};
+
+export {AppRoute, APIRoute, ClassName, DEFAULT_LOCALE, Rating, Event, ESC_KEY_CODE, RADIX, PromoCode, GITARAHIT_DISCOUNT_VALUE, SUPERGITARA_DISCOUNT_VALUE, GITARA2020_DISCOUNT_VALUE, MAX_GITARA2020_DISCOUNT_VALUE};

@@ -31,6 +31,15 @@
   letter-spacing: 0.05em;
 }
 
+.cart__ordering-discount span {
+  margin: 0;
+  margin-top: 20px;
+  padding: 0;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  color: $bright;
+}
+
 .cart__promo-code-wrapper {
   display: flex;
   flex-direction: row;
