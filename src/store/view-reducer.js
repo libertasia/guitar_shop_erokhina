@@ -1,9 +1,12 @@
+import {SortingOrder, SortingType} from '../const';
 import {ActionType} from './action';
 
 const initialState = {
   isAddToCartPopupOpened: false,
   isDeleteFromCartPopupOpened: false,
   isSuccessPopupOpened: false,
+  sortingType: SortingType.DEFAULT,
+  sortingOrder: SortingOrder.NONE,
 };
 
 const viewReducer = (state = initialState, action) => {
@@ -22,6 +25,16 @@ const viewReducer = (state = initialState, action) => {
       return {
         ...state,
         isSuccessPopupOpened: action.payload,
+      };
+    case ActionType.CHANGE_SORTING_TYPE:
+      return {
+        ...state,
+        sortingType: action.payload,
+      };
+    case ActionType.CHANGE_SORTING_ORDER:
+      return {
+        ...state,
+        sortingOrder: action.payload,
       };
   }
 

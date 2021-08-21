@@ -1,6 +1,6 @@
 import {useEffect} from 'react';
 import PropTypes from 'prop-types';
-import {Event} from './const';
+import {Event, SortingType, SortingOrder} from './const';
 
 const GuitarShape = PropTypes.shape({
   article: PropTypes.string.isRequired,
@@ -33,6 +33,29 @@ const onOverlayClick = (ref, handler) => {
   }, []); // Empty array ensures that effect is only run on mount and unmount
 };
 
-// const zeroPad = (num, places) => String(num).padStart(places, `0`);
+const generateSortedGuitars = (data, type, order) => {
+  const sortedGuirars = data.slice(0);
 
-export {onOverlayClick, GuitarShape};
+  if (type === SortingType.DEFAULT && order === SortingOrder.NONE) {
+    return sortedGuirars;
+  } else if (type === SortingType.PRICE) {
+    if (order === SortingOrder.ASCENDING || order === SortingOrder.NONE) {
+      return sortedGuirars.sort((a, b) => a.price - b.price);
+    } else if (order === SortingOrder.DESCENDING) {
+      return sortedGuirars.sort((a, b) => b.price - a.price);
+    }
+  } else if (type === SortingType.REVIEWS) {
+    if (order === SortingOrder.ASCENDING || order === SortingOrder.NONE) {
+      return sortedGuirars.sort((a, b) => a.reviews - b.reviews);
+    } else if (order === SortingOrder.DESCENDING) {
+      return sortedGuirars.sort((a, b) => b.reviews - a.reviews);
+    } else if (type === SortingType.DEFAULT && order === SortingOrder.ASCENDING) {
+      return sortedGuirars.sort((a, b) => a.price - b.price);
+    } else if (type === SortingType.DEFAULT && order === SortingOrder.DESCENDING) {
+      return sortedGuirars.sort((a, b) => b.price - a.price);
+    }
+  }
+  return sortedGuirars;
+};
+
+export {onOverlayClick, GuitarShape, generateSortedGuitars};

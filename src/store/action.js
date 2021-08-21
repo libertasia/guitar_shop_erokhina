@@ -2,6 +2,8 @@ export const ActionType = {
   SET_IS_ADD_TO_CART_POPUP_OPENED: `view/setIsAddToCartPopupOpened`,
   SET_IS_DELETE_FROM_CART_POPUP_OPENED: `view/setIsDeleteFromCartPopupOpened`,
   SET_IS_SUCCESS_POPUP_OPENED: `view/setIsSuccessPopupOpened`,
+  CHANGE_SORTING_TYPE: `view/changeSortingType`,
+  CHANGE_SORTING_ORDER: `view/changeSortingOrder`,
   SET_ACTIVE_PRODUCT: `data/setActiveProduct`,
   DELETE_FROM_CART: `data/deleteFromCart`,
   ADD_ONE_TO_CART: `data/addOneToCart`,
@@ -21,6 +23,14 @@ export const ActionCreator = {
   setIsSuccessPopupOpened: (isVisible) => ({
     type: ActionType.SET_IS_SUCCESS_POPUP_OPENED,
     payload: isVisible,
+  }),
+  changeSortingType: (type) => ({
+    type: ActionType.CHANGE_SORTING_TYPE,
+    payload: type,
+  }),
+  changeSortingOrder: (order) => ({
+    type: ActionType.CHANGE_SORTING_ORDER,
+    payload: order,
   }),
   setActiveProductId: (guitarId) => ({
     type: ActionType.SET_ACTIVE_PRODUCT,
