@@ -46,6 +46,16 @@ const dataReducer = (state = initialState, action) => {
         ...state,
         guitars: guitarsForRemove,
       };
+    case ActionType.CHANGE_PRODUCT_COUNT:
+      const guitarsForChange = [...state.guitars];
+      const indexToChange = guitarsForChange.findIndex((item) => item.article === action.payload.guitarId);
+      const changeGuitar = {...guitarsForChange[indexToChange]};
+      changeGuitar.numInCart = action.payload.count;
+      guitarsForChange[indexToChange] = changeGuitar;
+      return {
+        ...state,
+        guitars: guitarsForChange,
+      };
   }
 
   return state;

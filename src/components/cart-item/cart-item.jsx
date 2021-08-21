@@ -1,14 +1,18 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
-import {DEFAULT_LOCALE} from '../../const';
+import {DEFAULT_LOCALE, RADIX} from '../../const';
 import sprite from '../../img/sprite.svg';
 import {ActionCreator} from '../../store/action';
 import {GuitarShape} from '../../utils';
 
 const CartItem = (props) => {
 
-  const {guitar, onRemoveProductBtnClick, onDecreaseBtnClick, onIncreaseBtnClick} = props;
+  const {guitar, onRemoveProductBtnClick, onDecreaseBtnClick, onIncreaseBtnClick, onProductCountChanged} = props;
+
+  const [inputValue, setInputValue] = useState(guitar.numInCart);
+
+  const finalItemPrice = (guitar.price * guitar.numInCart).toLocaleString(DEFAULT_LOCALE);
 
   const handleDeleteProductBtnClick = () => {
     onRemoveProductBtnClick(guitar.article);
@@ -22,7 +26,27 @@ const CartItem = (props) => {
     onIncreaseBtnClick(guitar.article);
   };
 
-  const finalItemPrice = (guitar.price * guitar.numInCart).toLocaleString(DEFAULT_LOCALE);
+  const handleInputChange = (evt) => {
+    const newCount = parseInt(evt.target.value, RADIX);
+    if (!newCount) {
+      setInputValue(``);
+    } else {
+      setInputValue(newCount);
+      onProductCountChanged(guitar.article, newCount);
+    }
+  };
+
+  const handleInputBlur = () => {
+    if (!inputValue || inputValue === ``) {
+      setInputValue(guitar.numInCart);
+    }
+  };
+
+  useEffect(() => {
+    if (guitar.numInCart) {
+      setInputValue(guitar.numInCart);
+    }
+  }, [guitar.numInCart]);
 
   return (
     <li className="cart__list-item cart-item">
@@ -51,7 +75,7 @@ const CartItem = (props) => {
       <div className="cart-item__quantity-wrapper">
         <button type="button" className="cart-item__btn cart-item__btn--decrease" aria-label="Уменьшить количество товара" onClick={handleDecreaseBtnClick} />
         <label htmlFor={`${guitar.article}-quantity`} className="visually-hidden">Изменить количество товара</label>
-        <input className="cart-item__input" type="number" name={`${guitar.article}-quantity`} id={`${guitar.article}-quantity`} value={guitar.numInCart} readOnly />
+        <input className="cart-item__input" type="number" name={`${guitar.article}-quantity`} id={`${guitar.article}-quantity`} value={inputValue} onChange={handleInputChange} onBlur={handleInputBlur} />
         <button type="button" className="cart-item__btn cart-item__btn--increase" aria-label="Увеличить количество товара" onClick={handleIncreaseBtnClick} />
       </div>
 
@@ -67,6 +91,7 @@ CartItem.propTypes = {
   onRemoveProductBtnClick: PropTypes.func.isRequired,
   onDecreaseBtnClick: PropTypes.func.isRequired,
   onIncreaseBtnClick: PropTypes.func.isRequired,
+  onProductCountChanged: PropTypes.func.isRequired,
 };
 
 const mapDispatchToProps = (dispatch) => ({
@@ -84,6 +109,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
   onIncreaseBtnClick(id) {
     dispatch(ActionCreator.addOneToCart(id));
+  },
+  onProductCountChanged(id, count) {
+    dispatch(ActionCreator.changeProductCount(id, count));
   },
 });
 

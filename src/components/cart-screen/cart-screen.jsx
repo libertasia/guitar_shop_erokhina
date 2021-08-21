@@ -6,7 +6,7 @@ import Header from '../header/header';
 import Footer from '../footer/footer';
 import CartItem from '../cart-item/cart-item';
 import CartPopup from '../cart-popup/cart-popup';
-import {AppRoute} from '../../const';
+import {AppRoute, DEFAULT_LOCALE} from '../../const';
 import {getGuitarsInCart, getIsDeleteFromCartPopupVisibleStatus} from '../../store/selectors';
 import {GuitarShape} from '../../utils';
 
@@ -14,6 +14,13 @@ const CartScreen = (props) => {
   const {guitarsInCart, isDeleteFromCartPopupOpened} = props;
 
   const isGuitarsInCart = guitarsInCart.length === 0 ? false : true;
+
+  const totalGuitarsCost = guitarsInCart.reduce(
+      (accumulator, guitar, __currentIndex, __array) => {
+        accumulator = accumulator + (guitar.price * guitar.numInCart);
+        return (accumulator);
+      },
+      0);
 
   return (
     <React.Fragment>
@@ -45,7 +52,7 @@ const CartScreen = (props) => {
                 </div>
 
                 <div className="cart__processing-order-wrapper">
-                  <p>Всего: 47 000 ₽ </p>
+                  <p>Всего: {totalGuitarsCost.toLocaleString(DEFAULT_LOCALE)} ₽ </p>
                   <Link to={AppRoute.ORDER}>Оформить заказ</Link>
                 </div>
               </div>

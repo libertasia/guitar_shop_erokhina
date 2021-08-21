@@ -2,6 +2,8 @@ const DEFAULT_LOCALE = `ru`;
 
 const ESC_KEY_CODE = 27;
 
+const RADIX = 10;
+
 const Event = {
   WHEEL: `wheel`,
   KEY_DOWN: `keydown`,
@@ -36,4 +38,4 @@ const Rating = {
   FIVE: 5,
 };
 
-export {AppRoute, APIRoute, ClassName, DEFAULT_LOCALE, Rating, Event, ESC_KEY_CODE};
+export {AppRoute, APIRoute, ClassName, DEFAULT_LOCALE, Rating, Event, ESC_KEY_CODE, RADIX};

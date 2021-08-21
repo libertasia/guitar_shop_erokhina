@@ -6,6 +6,7 @@ export const ActionType = {
   DELETE_FROM_CART: `data/deleteFromCart`,
   ADD_ONE_TO_CART: `data/addOneToCart`,
   REMOVE_ONE_FROM_CART: `data/removeOneFromCart`,
+  CHANGE_PRODUCT_COUNT: `data/changeProductCount`,
 };
 
 export const ActionCreator = {
@@ -36,5 +37,9 @@ export const ActionCreator = {
   removeOneFromCart: (guitarId) => ({
     type: ActionType.REMOVE_ONE_FROM_CART,
     payload: guitarId
+  }),
+  changeProductCount: (guitarId, count) => ({
+    type: ActionType.CHANGE_PRODUCT_COUNT,
+    payload: {guitarId, count}
   }),
 };
