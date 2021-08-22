@@ -2,7 +2,7 @@ import {useEffect} from 'react';
 import PropTypes from 'prop-types';
 import {Event, SortingType, SortingOrder} from './const';
 
-const GuitarShape = PropTypes.shape({
+export const GuitarShape = PropTypes.shape({
   article: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
@@ -14,7 +14,7 @@ const GuitarShape = PropTypes.shape({
   numInCart: PropTypes.number.isRequired,
 });
 
-const onOverlayClick = (ref, handler) => {
+export const onOverlayClick = (ref, handler) => {
   useEffect(() => {
     const listener = (event) => {
       // Do nothing if clicking ref's element or descendent elements
@@ -33,7 +33,7 @@ const onOverlayClick = (ref, handler) => {
   }, []); // Empty array ensures that effect is only run on mount and unmount
 };
 
-const generateSortedGuitars = (data, type, order) => {
+export const generateSortedGuitars = (data, type, order) => {
   const sortedGuirars = data.slice(0);
 
   if (type === SortingType.DEFAULT && order === SortingOrder.NONE) {
@@ -58,33 +58,33 @@ const generateSortedGuitars = (data, type, order) => {
   return sortedGuirars;
 };
 
-const getMinAvailablePrice = (guitars) => {
+export const getMinAvailablePrice = (guitars) => {
   return Math.min(...guitars.map((item) => item.price));
 };
 
-const getMaxAvailablePrice = (guitars) => {
+export const getMaxAvailablePrice = (guitars) => {
   return Math.max(...guitars.map((item) => item.price));
 };
 
-const getAllAvailableStrings = (guitarTypes) => {
-  let availableStrings = guitarTypes.map((item) => item.availableStrings)
+export const getAllAvailableStrings = (guitarTypes) => {
+  let availableStrings = guitarTypes.map((item) => item.availableStrings);
   availableStrings = [].concat(...availableStrings);
   availableStrings = [...new Set(availableStrings)];
   return availableStrings.sort((a, b) => a - b);
 };
 
-const getSelectableStrings = (guitarTypes) => {
+export const getSelectableStrings = (guitarTypes) => {
   let selectableStrings = getAllAvailableStrings(guitarTypes);
   const selectedTypeFilters = guitarTypes.filter((item) => item.isSelected);
   if (selectedTypeFilters.length > 0) {
     selectableStrings = getAllAvailableStrings(selectedTypeFilters);
   }
   return selectableStrings;
-}
+};
 
-const getSelectableTypeNames = (guitarTypes, selectedStrings) => {
+export const getSelectableTypeNames = (guitarTypes, selectedStrings) => {
   if (selectedStrings.length === 0) {
-    return guitarTypes.map((item) => item.name);;
+    return guitarTypes.map((item) => item.name);
   }
   const selectableTypes = guitarTypes.filter((item) => {
     const intersection = item.availableStrings.filter((el) => selectedStrings.includes(el));
@@ -93,9 +93,14 @@ const getSelectableTypeNames = (guitarTypes, selectedStrings) => {
   return selectableTypes.map((item) => item.name);
 };
 
-const generateFilteredGuitars = (guitars, minPrice, maxPrice, selectedStrings, typeFilters) => {
-  let filtered = guitars.filter((item) => item.price >= minPrice);
-  filtered = filtered.filter((item) => item.price <= maxPrice);
+export const generateFilteredGuitars = (guitars, minPrice, maxPrice, selectedStrings, typeFilters) => {
+  let filtered = [...guitars];
+  if (minPrice > 0) {
+    filtered = guitars.filter((item) => item.price >= minPrice);
+  }
+  if (maxPrice > 0) {
+    filtered = filtered.filter((item) => item.price <= maxPrice);
+  }
   if (selectedStrings.length > 0) {
     filtered = filtered.filter((item) => selectedStrings.indexOf(item.strings) !== -1);
   }
@@ -106,7 +111,3 @@ const generateFilteredGuitars = (guitars, minPrice, maxPrice, selectedStrings, t
   }
   return filtered;
 };
-
-export {
-  onOverlayClick, GuitarShape, generateSortedGuitars, generateFilteredGuitars, getMinAvailablePrice, getMaxAvailablePrice,
-  getAllAvailableStrings, getSelectableStrings, getSelectableTypeNames};

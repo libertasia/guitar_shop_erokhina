@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {ActionCreator} from '../../store/action';
 import {getAllGuitars, getFilterGuitarTypes, getFilterMaxPrice, getFilterMinPrice, getFilterSelectedStrings} from '../../store/selectors';
-import {getMinAvailablePrice, getMaxAvailablePrice, getAllAvailableStrings, getSelectableStrings, getSelectableTypeNames} from '../../utils';
+import {getMinAvailablePrice, getMaxAvailablePrice, getAllAvailableStrings, getSelectableStrings, getSelectableTypeNames, GuitarShape} from '../../utils';
 import {DEFAULT_LOCALE, InputType, RADIX} from '../../const';
 
 const Filter = (props) => {
@@ -18,15 +18,15 @@ const Filter = (props) => {
   const maxAvailablePrice = getMaxAvailablePrice(allGuitars);
   const availableStrings = getAllAvailableStrings(guitarTypes);
   const selectableStrings = getSelectableStrings(guitarTypes);
-  const selectableTypeNames = getSelectableTypeNames(guitarTypes, selectedStrings)
+  const selectableTypeNames = getSelectableTypeNames(guitarTypes, selectedStrings);
 
   const handleTypeFilterChange = (evt) => {
     onTypeFilterClick(evt.target.name, evt.target.checked);
   };
 
   const handleStringsFilterChange = (evt) => {
-    onStringsFilterChange(parseInt(evt.target.name), evt.target.checked)
-  }
+    onStringsFilterChange(parseInt(evt.target.name, RADIX), evt.target.checked);
+  };
 
   const handleMinPriceFocus = () => {
     if (minPrice > 0) {
@@ -36,12 +36,16 @@ const Filter = (props) => {
   };
 
   const handleMinPriceChange = (evt) => {
-    const newPrice = parseInt(evt.target.value, RADIX);
-    setMinPriceText(newPrice);
+    setMinPriceText(evt.target.value);
   };
 
   const handleMinPriceBlur = (evt) => {
-    const newPrice = parseInt(evt.target.value, RADIX)
+    let newPrice = parseInt(evt.target.value, RADIX);
+    if (!newPrice || newPrice < 0) {
+      newPrice = minAvailablePrice;
+    } else if (newPrice > maxPrice) {
+      newPrice = maxPrice;
+    }
     onMinPriceChange(newPrice);
     setMinPriceType(InputType.TEXT);
     setMinPriceText(newPrice.toLocaleString(DEFAULT_LOCALE));
@@ -55,12 +59,16 @@ const Filter = (props) => {
   };
 
   const handleMaxPriceChange = (evt) => {
-    const newPrice = parseInt(evt.target.value, RADIX);
-    setMaxPriceText(newPrice);
+    setMaxPriceText(evt.target.value);
   };
 
   const handleMaxPriceBlur = (evt) => {
-    const newPrice = parseInt(evt.target.value, RADIX)
+    let newPrice = parseInt(evt.target.value, RADIX);
+    if (!newPrice || newPrice < 0) {
+      newPrice = maxAvailablePrice;
+    } else if (newPrice < minPrice) {
+      newPrice = minPrice;
+    }
     onMaxPriceChange(newPrice);
     setMaxPriceType(InputType.TEXT);
     setMaxPriceText(newPrice.toLocaleString(DEFAULT_LOCALE));
@@ -102,43 +110,58 @@ const Filter = (props) => {
         <section className="filter__form-section">
           <h3>Тип гитар</h3>
           <ul className="filter__guitar-type-list">
-          {guitarTypes.map((guitarType) =>
-            <li className="filter__guitar-type-item" key={guitarType.name}>
-              <input className="filter__checkbox visually-hidden" type="checkbox"
-                id={guitarType.name}
-                name={guitarType.name}
-                checked={guitarType.isSelected && selectableTypeNames.includes(guitarType.name)}
-                disabled={!selectableTypeNames.includes(guitarType.name)}
-                onChange={handleTypeFilterChange}
-              />
-              <label className="filter__label" htmlFor={guitarType.name}>{guitarType.caption}</label>
-            </li>
-          )}
+            {guitarTypes.map((guitarType) =>
+              <li className="filter__guitar-type-item" key={guitarType.name}>
+                <input className="filter__checkbox visually-hidden" type="checkbox"
+                  id={guitarType.name}
+                  name={guitarType.name}
+                  checked={guitarType.isSelected && selectableTypeNames.includes(guitarType.name)}
+                  disabled={!selectableTypeNames.includes(guitarType.name)}
+                  onChange={handleTypeFilterChange}
+                />
+                <label className="filter__label" htmlFor={guitarType.name}>{guitarType.caption}</label>
+              </li>
+            )}
           </ul>
         </section>
 
         <section className="filter__form-section">
           <h3>Количество струн</h3>
           <ul className="filter__guitar-strings-list">
-          {availableStrings.map((item) =>
-            <li className="filter__guitar-string-item" key={item}>
-              <input className="filter__checkbox visually-hidden" type="checkbox"
-                id={`${item}`}
-                name={`${item}`}
-                disabled={!selectableStrings.includes(item)}
-                checked={selectedStrings.includes(item) && selectableStrings.includes(item)}
-                onChange={handleStringsFilterChange}
-              />
-              <label className="filter__label" htmlFor={`${item}`}>{item}</label>
-            </li>
-          )}
+            {availableStrings.map((item) =>
+              <li className="filter__guitar-string-item" key={item}>
+                <input className="filter__checkbox visually-hidden" type="checkbox"
+                  id={`${item}`}
+                  name={`${item}`}
+                  disabled={!selectableStrings.includes(item)}
+                  checked={selectedStrings.includes(item) && selectableStrings.includes(item)}
+                  onChange={handleStringsFilterChange}
+                />
+                <label className="filter__label" htmlFor={`${item}`}>{item}</label>
+              </li>
+            )}
           </ul>
         </section>
-
-        <button className="filter__show-btn" type="button">показать</button>
       </form>
     </section>
   );
+};
+
+Filter.propTypes = {
+  allGuitars: PropTypes.arrayOf(GuitarShape).isRequired,
+  minPrice: PropTypes.number.isRequired,
+  maxPrice: PropTypes.number.isRequired,
+  guitarTypes: PropTypes.arrayOf(PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    caption: PropTypes.string.isRequired,
+    isSelected: PropTypes.bool.isRequired,
+    availableStrings: PropTypes.arrayOf(PropTypes.number),
+  })).isRequired,
+  selectedStrings: PropTypes.array.isRequired,
+  onTypeFilterClick: PropTypes.func.isRequired,
+  onStringsFilterChange: PropTypes.func.isRequired,
+  onMinPriceChange: PropTypes.func.isRequired,
+  onMaxPriceChange: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -161,10 +184,10 @@ const mapDispatchToProps = (dispatch) => ({
     }
   },
   onMinPriceChange(price) {
-    dispatch(ActionCreator.filterSetMinPrice(price))
+    dispatch(ActionCreator.filterSetMinPrice(price));
   },
   onMaxPriceChange(price) {
-    dispatch(ActionCreator.filterSetMaxPrice(price))
+    dispatch(ActionCreator.filterSetMaxPrice(price));
   },
 });
 

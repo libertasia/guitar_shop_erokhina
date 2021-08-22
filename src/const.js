@@ -1,26 +1,26 @@
-const DEFAULT_LOCALE = `ru`;
+export const DEFAULT_LOCALE = `ru`;
 
-const ESC_KEY_CODE = 27;
+export const ESC_KEY_CODE = 27;
 
-const RADIX = 10;
+export const RADIX = 10;
 
-const MAX_ITEMS_COUNT_PER_PAGE = 9;
+export const MAX_ITEMS_COUNT_PER_PAGE = 9;
 
-const GITARAHIT_DISCOUNT_VALUE = 0.1;
+export const GITARAHIT_DISCOUNT_VALUE = 0.1;
 
-const SUPERGITARA_DISCOUNT_VALUE = 700;
+export const SUPERGITARA_DISCOUNT_VALUE = 700;
 
-const GITARA2020_DISCOUNT_VALUE = 3500;
+export const GITARA2020_DISCOUNT_VALUE = 3500;
 
-const MAX_GITARA2020_DISCOUNT_VALUE = 0.3;
+export const MAX_GITARA2020_DISCOUNT_VALUE = 0.3;
 
-const Event = {
+export const Event = {
   WHEEL: `wheel`,
   KEY_DOWN: `keydown`,
   MOUSE_DOWN: `mousedown`,
 };
 
-const AppRoute = {
+export const AppRoute = {
   ROOT: `/`,
   CART: `/cart`,
   CONTACTS: `/contacts`,
@@ -30,17 +30,17 @@ const AppRoute = {
   ORDER: `/order`,
 };
 
-const APIRoute = {
+export const APIRoute = {
   ROOT: `/`,
 };
 
-const ClassName = {
+export const ClassName = {
   DISPLAY_BLOCK: `display-block`,
   DISPLAY_NONE: `display-none`,
   VISUALLY_HIDDEN: `visually-hidden`,
 };
 
-const Rating = {
+export const Rating = {
   ONE: 1,
   TWO: 2,
   THREE: 3,
@@ -48,31 +48,31 @@ const Rating = {
   FIVE: 5,
 };
 
-const PromoCode = {
+export const PromoCode = {
   GITARAHIT: `gitarahit`,
   SUPERGITARA: `supergitara`,
   GITARA2020: `gitara2020`,
 };
 
-const SortingType = {
+export const SortingType = {
   DEFAULT: `default`,
   PRICE: `price`,
   REVIEWS: `reviews`,
 };
 
-const SortingOrder = {
+export const SortingOrder = {
   NONE: `none`,
   ASCENDING: `asc`,
   DESCENDING: `desc`,
 };
 
-const InputType = {
+export const InputType = {
   TEXT: `text`,
   NUMBER: `number`,
 };
 
-export {
-  AppRoute, APIRoute, ClassName, DEFAULT_LOCALE, Rating, Event, ESC_KEY_CODE, RADIX, PromoCode, MAX_ITEMS_COUNT_PER_PAGE,
-  GITARAHIT_DISCOUNT_VALUE, SUPERGITARA_DISCOUNT_VALUE, GITARA2020_DISCOUNT_VALUE, MAX_GITARA2020_DISCOUNT_VALUE, SortingType, SortingOrder,
-  InputType
+export const GuitarType = {
+  ACOUSTIC: `акустическая гитара`,
+  ELECTRIC: `электрогитара`,
+  UKULELE: `укулеле`,
 };

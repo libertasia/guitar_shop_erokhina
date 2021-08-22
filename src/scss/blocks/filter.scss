@@ -183,29 +183,3 @@
 .filter__checkbox:disabled + .filter__label {
   color: $light;
 }
-
-.filter__show-btn {
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-transform: uppercase;
-  width: 120px;
-  min-height: 30px;
-  padding: 5px;
-  background-color: $grey;
-  border: none;
-  border-radius: 2px;
-  color: $basic-white;
-  font-family: $main-font;
-  font-weight: 700;
-  font-size: 12px;
-
-  &:hover {
-    background-color: $dark;
-  }
-
-  &:active {
-    background-color: $input-border-color;
-  }
-}

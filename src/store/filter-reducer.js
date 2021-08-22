@@ -1,28 +1,29 @@
 import {ActionType} from './action';
 import {getSelectableStrings, getSelectableTypeNames} from '../utils';
+import {GuitarType} from '../const';
 
 const initialState = {
-  priceFrom: 0,
-  priceTo: Infinity,
+  priceFrom: -1,
+  priceTo: -1,
   selectedStrings: [],
   guitarTypes: [
     {
-      name: `акустическая гитара`,
+      name: GuitarType.ACOUSTIC,
       caption: `Акустические гитары`,
       isSelected: false,
-      availableStrings: [6, 7, 12]
+      availableStrings: [6, 7, 12],
     },
     {
-      name: `электрогитара`,
+      name: GuitarType.ELECTRIC,
       caption: `Электрогитары`,
       isSelected: false,
-      availableStrings: [4, 6, 7]
+      availableStrings: [4, 6, 7],
     },
     {
-      name: `укулеле`,
+      name: GuitarType.UKULELE,
       caption: `Укулеле`,
       isSelected: false,
-      availableStrings: [4]
+      availableStrings: [4],
     },
   ]
 };
@@ -47,7 +48,7 @@ const filterReducer = (state = initialState, action) => {
         if (item.isSelected) {
           item.isSelected = selectableTypeNames.includes(item.name);
         }
-      })
+      });
       return {
         ...state,
         guitarTypes,
@@ -61,7 +62,7 @@ const filterReducer = (state = initialState, action) => {
         if (item.isSelected) {
           item.isSelected = rSelectableTypeNames.includes(item.name);
         }
-      })
+      });
       return {
         ...state,
         guitarTypes: rGuitarTypes,
@@ -75,7 +76,7 @@ const filterReducer = (state = initialState, action) => {
       newGuitarTypes[index] = guitarType;
       const selectableStrings = getSelectableStrings(newGuitarTypes);
       let selectedStrings = [...state.selectedStrings];
-      selectedStrings = selectedStrings.filter((item) => selectableStrings.includes(item))
+      selectedStrings = selectedStrings.filter((item) => selectableStrings.includes(item));
       return {
         ...state,
         guitarTypes: newGuitarTypes,
