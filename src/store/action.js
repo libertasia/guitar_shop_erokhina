@@ -9,6 +9,11 @@ export const ActionType = {
   ADD_ONE_TO_CART: `data/addOneToCart`,
   REMOVE_ONE_FROM_CART: `data/removeOneFromCart`,
   CHANGE_PRODUCT_COUNT: `data/changeProductCount`,
+  FILTER_SET_MIN_PRICE: `filter/setMinPrice`,
+  FILTER_SET_MAX_PRICE: `filter/setMaxPrice`,
+  FILTER_ADD_STRINGS: `filter/addStrings`,
+  FILTER_REMOVE_STRINGS: `filter/removeStrings`,
+  FILTER_SET_TYPE_SELECTION: `filter/setTypeSelection`,
 };
 
 export const ActionCreator = {
@@ -51,5 +56,28 @@ export const ActionCreator = {
   changeProductCount: (guitarId, count) => ({
     type: ActionType.CHANGE_PRODUCT_COUNT,
     payload: {guitarId, count}
+  }),
+  filterSetMinPrice: (price) => ({
+    type: ActionType.FILTER_SET_MIN_PRICE,
+    payload: price
+  }),
+  filterSetMaxPrice: (price) => ({
+    type: ActionType.FILTER_SET_MAX_PRICE,
+    payload: price
+  }),
+  filterAddStrings: (stringsCount) => ({
+    type: ActionType.FILTER_ADD_STRINGS,
+    payload: stringsCount
+  }),
+  filterRemoveStrings: (stringsCount) => ({
+    type: ActionType.FILTER_REMOVE_STRINGS,
+    payload: stringsCount
+  }),
+  filterSetTypeSelection: (typeName, isSelected) => ({
+    type: ActionType.FILTER_SET_TYPE_SELECTION,
+    payload: {
+      name: typeName,
+      isSelected
+    }
   }),
 };

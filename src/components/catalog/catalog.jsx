@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import sprite from '../../img/sprite.svg';
 import CatalogItem from '../catalog-item/catalog-item';
 import Pagination from '../pagination/pagination';
-import {getSortedGuitars} from '../../store/selectors';
+import {getVisibleGuitars} from '../../store/selectors';
 import {GuitarShape} from '../../utils';
 import {SortingOrder, SortingType, MAX_ITEMS_COUNT_PER_PAGE} from '../../const';
 import {ActionCreator} from '../../store/action';
@@ -100,7 +100,7 @@ Catalog.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  guitars: getSortedGuitars(state),
+  guitars: getVisibleGuitars(state),
 });
 
 const mapDispatchToProps = (dispatch) => ({

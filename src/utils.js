@@ -58,4 +58,55 @@ const generateSortedGuitars = (data, type, order) => {
   return sortedGuirars;
 };
 
-export {onOverlayClick, GuitarShape, generateSortedGuitars};
+const getMinAvailablePrice = (guitars) => {
+  return Math.min(...guitars.map((item) => item.price));
+};
+
+const getMaxAvailablePrice = (guitars) => {
+  return Math.max(...guitars.map((item) => item.price));
+};
+
+const getAllAvailableStrings = (guitarTypes) => {
+  let availableStrings = guitarTypes.map((item) => item.availableStrings)
+  availableStrings = [].concat(...availableStrings);
+  availableStrings = [...new Set(availableStrings)];
+  return availableStrings.sort((a, b) => a - b);
+};
+
+const getSelectableStrings = (guitarTypes) => {
+  let selectableStrings = getAllAvailableStrings(guitarTypes);
+  const selectedTypeFilters = guitarTypes.filter((item) => item.isSelected);
+  if (selectedTypeFilters.length > 0) {
+    selectableStrings = getAllAvailableStrings(selectedTypeFilters);
+  }
+  return selectableStrings;
+}
+
+const getSelectableTypeNames = (guitarTypes, selectedStrings) => {
+  if (selectedStrings.length === 0) {
+    return guitarTypes.map((item) => item.name);;
+  }
+  const selectableTypes = guitarTypes.filter((item) => {
+    const intersection = item.availableStrings.filter((el) => selectedStrings.includes(el));
+    return intersection.length > 0;
+  });
+  return selectableTypes.map((item) => item.name);
+};
+
+const generateFilteredGuitars = (guitars, minPrice, maxPrice, selectedStrings, typeFilters) => {
+  let filtered = guitars.filter((item) => item.price >= minPrice);
+  filtered = filtered.filter((item) => item.price <= maxPrice);
+  if (selectedStrings.length > 0) {
+    filtered = filtered.filter((item) => selectedStrings.indexOf(item.strings) !== -1);
+  }
+  const selectedTypeFilters = typeFilters.filter((item) => item.isSelected);
+  const selectedTypeNames = selectedTypeFilters.map((item) => item.name);
+  if (selectedTypeFilters.length > 0) {
+    filtered = filtered.filter((item) => selectedTypeNames.indexOf(item.type) !== -1);
+  }
+  return filtered;
+};
+
+export {
+  onOverlayClick, GuitarShape, generateSortedGuitars, generateFilteredGuitars, getMinAvailablePrice, getMaxAvailablePrice,
+  getAllAvailableStrings, getSelectableStrings, getSelectableTypeNames};
