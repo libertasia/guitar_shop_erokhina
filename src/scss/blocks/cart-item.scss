@@ -6,7 +6,7 @@
   border-top: 1px solid $border-color;
   width: 100%;
   margin: 0;
-  padding: 20px 0 20px 44px;
+  padding: 20px 0 16px 44px;
   position: relative;
 }
 
@@ -73,6 +73,7 @@
   font-size: 20px;
   letter-spacing: 0.05em;
   align-self: center;
+  margin-right: 45px;
 }
 
 .cart-item__quantity-wrapper {
@@ -80,6 +81,7 @@
   flex-direction: row;
   margin: 0 auto;
   margin-top: 20px;
+  max-width: 84px;
 }
 
 .cart-item__btn {

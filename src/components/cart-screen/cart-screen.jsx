@@ -56,7 +56,7 @@ const CartScreen = (props) => {
       <Header />
       <main className="main">
         <div className="container main__container">
-          <h1 className="main__title">Корзина</h1>
+          <h1 className="main__title main__title--cart">Корзина</h1>
           <span className="main__page-title-first">Главная</span><span className="main__page-title-second">Каталог</span><span className="main__page-title-third">Оформляем</span>
 
           {isGuitarsInCart &&
