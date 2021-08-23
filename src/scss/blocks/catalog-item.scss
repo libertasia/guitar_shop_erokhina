@@ -18,7 +18,7 @@
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  margin-top: 8px;
+  margin-top: 9px;
 }
 
 .catalog-item__rating-stars {
@@ -33,7 +33,7 @@
 
 .catalog-item__rating-stars label {
   cursor: pointer;
-  margin-right: 5px;
+  margin-right: 4px;
   width: 10px;
   height: 10px;
   background-image: url("../../img/star.svg");
@@ -68,8 +68,8 @@
 }
 
 .catalog-item__info {
-  margin-top: 8px;
-  margin-bottom: 16px;
+  margin-top: 6px;
+  margin-bottom: 12px;
 }
 
 .catalog-item__info h3,
@@ -89,7 +89,7 @@
   text-decoration: none;
   width: 89px;
   min-height: 23px;
-  padding: 4px 5px;
+  padding: 2px 5px;
   background-color: $grey;
   border-radius: 2px;
   color: $basic-white;
@@ -114,7 +114,7 @@
   text-decoration: none;
   width: 87px;
   min-height: 23px;
-  padding: 4px 5px 4px 24px;
+  padding: 2px 5px 2px 20px;
   background-color: $basic-bright;
   background-image: url("../../img/cart-button-background-img.svg");
   background-size: 12px 13px;

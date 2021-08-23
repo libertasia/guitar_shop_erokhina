@@ -2,7 +2,7 @@
   font-weight: 700;
   font-size: 18px;
   margin: 0;
-  margin-bottom: 30px;
+  margin-bottom: 29px;
 }
 
 .filter__form-section {
@@ -13,8 +13,17 @@
 .filter__form-section h3 {
   font-weight: 700;
   font-size: 18px;
+}
+
+.filter__title-price {
   margin: 0;
   margin-bottom: 24px;
+}
+
+.filter__title-type,
+.filter__title-strings {
+  margin: 0;
+  margin-bottom: 20px;
 }
 
 .filter__rub {
@@ -91,6 +100,11 @@
   align-items: center;
   margin: 0;
   margin-bottom: 12px;
+  min-height: 24px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 .filter__label {
@@ -110,7 +124,7 @@
   &::before {
     content: "";
     position: absolute;
-    top: 0;
+    top: 0px;
     left: 0;
     width: 24px;
     height: 24px;

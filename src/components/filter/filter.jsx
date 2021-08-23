@@ -79,7 +79,7 @@ const Filter = (props) => {
       <h2 className="filter__title">Фильтр</h2>
       <form className="filter__form" action="#" method="get">
         <section className="filter__form-section">
-          <h3>Цена, <span className="filter__rub">&#x20bd;</span></h3>
+          <h3 className="filter__title-price">Цена, <span className="filter__rub">&#x20bd;</span></h3>
           <div className="filter__price-wrapper">
             <label className="visually-hidden" htmlFor="min-price">Цена от</label>
             <input type={minPriceType}
@@ -108,7 +108,7 @@ const Filter = (props) => {
         </section>
 
         <section className="filter__form-section">
-          <h3>Тип гитар</h3>
+          <h3 className="filter__title-type">Тип гитар</h3>
           <ul className="filter__guitar-type-list">
             {guitarTypes.map((guitarType) =>
               <li className="filter__guitar-type-item" key={guitarType.name}>
@@ -126,7 +126,7 @@ const Filter = (props) => {
         </section>
 
         <section className="filter__form-section">
-          <h3>Количество струн</h3>
+          <h3 className="filter__title-strings">Количество струн</h3>
           <ul className="filter__guitar-strings-list">
             {availableStrings.map((item) =>
               <li className="filter__guitar-string-item" key={item}>
