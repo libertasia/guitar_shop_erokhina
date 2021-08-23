@@ -1,5 +1,9 @@
 import {useMemo} from 'react';
 
+const PAGES_COUNT = 5;
+const SIBLING_INDEX = 2;
+const MIN_PAGES_COUNT = 3;
+
 export const DOTS = `...`;
 
 const range = (start, end) => {
@@ -17,7 +21,7 @@ export const usePagination = ({
     const totalPageCount = Math.ceil(totalCount / pageSize);
 
     // Pages count is determined as siblingCount + firstPage + lastPage + currentPage + 2*DOTS
-    const totalPageNumbers = siblingCount + 5;
+    const totalPageNumbers = siblingCount + PAGES_COUNT;
 
     /*
       If the number of pages is less than the page numbers we want to show in our
@@ -38,21 +42,21 @@ export const usePagination = ({
       after/before the left/right page count as that would lead to a change if our Pagination
       component size which we do not want
     */
-    const shouldShowLeftDots = leftSiblingIndex > 2;
-    const shouldShowRightDots = rightSiblingIndex < totalPageCount - 2;
+    const shouldShowLeftDots = leftSiblingIndex > SIBLING_INDEX;
+    const shouldShowRightDots = rightSiblingIndex < totalPageCount - SIBLING_INDEX;
 
     const firstPageIndex = 1;
     const lastPageIndex = totalPageCount;
 
     if (!shouldShowLeftDots && shouldShowRightDots) {
-      let leftItemCount = 3 + 2 * siblingCount;
+      let leftItemCount = MIN_PAGES_COUNT + SIBLING_INDEX * siblingCount;
       let leftRange = range(1, leftItemCount);
 
       return [...leftRange, DOTS, totalPageCount];
     }
 
     if (shouldShowLeftDots && !shouldShowRightDots) {
-      let rightItemCount = 3 + 2 * siblingCount;
+      let rightItemCount = MIN_PAGES_COUNT + SIBLING_INDEX * siblingCount;
       let rightRange = range(
           totalPageCount - rightItemCount + 1,
           totalPageCount

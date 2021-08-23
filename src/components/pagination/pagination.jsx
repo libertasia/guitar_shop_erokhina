@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {usePagination, DOTS} from '../../usePagination';
 
+const MIN_PAGINATION_LENGTH = 2;
+
 const Pagination = (props) => {
   const {
     onPageChange,
@@ -20,7 +22,7 @@ const Pagination = (props) => {
     pageSize
   });
 
-  if (currentPage === 0 || paginationRange.length < 2) {
+  if (currentPage === 0 || paginationRange.length < MIN_PAGINATION_LENGTH) {
     return null;
   }
 
