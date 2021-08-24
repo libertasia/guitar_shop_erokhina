@@ -27,7 +27,8 @@ const CartScreen = (props) => {
       0);
 
   const handleInputChange = (evt) => {
-    setPromoCodeValue(evt.target.value);
+    setPromoCodeValue(evt.target.value.toLowerCase());
+    setIsPromoCodeValid(true);
   };
 
   const handleApplyPromoCodeBtnClick = () => {

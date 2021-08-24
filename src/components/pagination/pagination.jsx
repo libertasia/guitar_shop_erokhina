@@ -40,9 +40,7 @@ const Pagination = (props) => {
       className={classnames(`pagination`, {[className]: className})}
     >
       <li
-        className={classnames(`pagination__item`, {
-          disabled: currentPage === 1
-        })}
+        className={`pagination__item ${currentPage === 1 ? `pagination__item--disabled` : ``}`}
       >
         <button className="pagination__btn pagination__btn-previous" onClick={onPrevious}>Назад</button>
       </li>
@@ -54,9 +52,7 @@ const Pagination = (props) => {
         return (
           <li
             key={`pagination-${pageNumber}`}
-            className={classnames(`pagination__item`, {
-              selected: pageNumber === currentPage
-            })}
+            className={`pagination__item ${pageNumber === currentPage ? `pagination__item--selected` : ``}`}
             onClick={() => onPageChange(pageNumber)}
           >
             {pageNumber}
@@ -64,9 +60,7 @@ const Pagination = (props) => {
         );
       })}
       <li
-        className={classnames(`pagination__item`, {
-          disabled: currentPage === lastPage
-        })}
+        className={`pagination__item ${currentPage === lastPage ? `pagination__item--disabled` : ``}`}
       >
         <button className="pagination__btn pagination__btn-next" onClick={onNext}>Далее</button>
       </li>

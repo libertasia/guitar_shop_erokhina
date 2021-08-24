@@ -55,18 +55,18 @@ const filterReducer = (state = initialState, action) => {
         selectedStrings: newSelectedStrings,
       };
     case ActionType.FILTER_REMOVE_STRINGS:
-      const rNewSelectedStrings = [...state.selectedStrings].filter((el) => el !== action.payload);
-      let rGuitarTypes = [...state.guitarTypes];
-      const rSelectableTypeNames = getSelectableTypeNames(rGuitarTypes, rNewSelectedStrings);
-      rGuitarTypes.forEach((item) => {
+      const updatedSelectedStrings = [...state.selectedStrings].filter((el) => el !== action.payload);
+      let updatedGuitarTypes = [...state.guitarTypes];
+      const updatedSelectableTypeNames = getSelectableTypeNames(updatedGuitarTypes, updatedSelectedStrings);
+      updatedGuitarTypes.forEach((item) => {
         if (item.isSelected) {
-          item.isSelected = rSelectableTypeNames.includes(item.name);
+          item.isSelected = updatedSelectableTypeNames.includes(item.name);
         }
       });
       return {
         ...state,
-        guitarTypes: rGuitarTypes,
-        selectedStrings: rNewSelectedStrings,
+        guitarTypes: updatedGuitarTypes,
+        selectedStrings: updatedSelectedStrings,
       };
     case ActionType.FILTER_SET_TYPE_SELECTION:
       const newGuitarTypes = [...state.guitarTypes];

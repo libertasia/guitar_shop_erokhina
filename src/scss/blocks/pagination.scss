@@ -34,13 +34,13 @@
     cursor: pointer;
   }
 
-  &.selected {
+  &--selected {
     background-color: $dark;
     color: $basic-white;
     border: none;
   }
 
-  &.disabled {
+  &--disabled {
     pointer-events: none;
     display: none;
   }
