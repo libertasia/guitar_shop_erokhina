@@ -80,7 +80,7 @@ const CartScreen = (props) => {
                   <p>Введите свой промокод, если он у вас есть.</p>
                   <div className="cart__promo-code-wrapper">
                     <label htmlFor="promo-code" className="visually-hidden">Промокод</label>
-                    <input type="text" name="promo-code" id="promo-code" placeholder="GITARAHIT" value={promoCodeValue} onChange={handleInputChange} />
+                    <input type="text" name="promo-code" id="promo-code" placeholder="Промокод" value={promoCodeValue} onChange={handleInputChange} />
                     <button className="cart__promo-apply-btn" type="button" onClick={handleApplyPromoCodeBtnClick}>Применить купон</button>
                   </div>
                   <span className={isPromoCodeValid ? ClassName.DISPLAY_NONE : ClassName.DISPLAY_BLOCK}>Промокод не действителен</span>
