@@ -43,7 +43,7 @@ const Filter = (props) => {
     let newPrice = parseInt(evt.target.value, RADIX);
     if (!newPrice || newPrice < 0) {
       newPrice = minAvailablePrice;
-    } else if (newPrice > maxPrice) {
+    } else if (newPrice > maxPrice && maxPrice !== -1) {
       newPrice = maxPrice;
     }
     onMinPriceChange(newPrice);
