@@ -58,7 +58,11 @@ const CartScreen = (props) => {
       <main className="main">
         <div className="container main__container">
           <h1 className="main__title main__title--cart">Корзина</h1>
-          <span className="main__page-title-first">Главная</span><span className="main__page-title-second">Каталог</span><span className="main__page-title-third">Оформляем</span>
+          <ol className="main__breadcrumbs-list">
+            <li className="main__breadcrumbs-item"><a href="#" className="main__breadcrumbs-link">Главная</a></li>
+            <li className="main__breadcrumbs-item"><Link to={AppRoute.ROOT} className="main__breadcrumbs-link">Каталог</Link></li>
+            <li className="main__breadcrumbs-item"><Link to={AppRoute.CART} className="main__breadcrumbs-link">Оформляем</Link></li>
+          </ol>
 
           {isGuitarsInCart &&
             <div className="main__cart-wrapper cart">
