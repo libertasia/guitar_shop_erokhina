@@ -44,7 +44,10 @@
   background: none;
   display: flex;
   text-align: center;
-  padding: 5px 10px;
+  font-family: $main-font;
+  color: $basic-black;
+  letter-spacing: 0.05em;
+  font-size: 14px;
 
   &::placeholder {
     font-family: $main-font;
@@ -52,6 +55,7 @@
     font-size: 14px;
     font-weight: 400;
     color: rgba(0, 0, 0, 0.6);
+    overflow: visible;
   }
 }
 
